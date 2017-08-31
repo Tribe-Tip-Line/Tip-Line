@@ -1,4 +1,3 @@
-Template for User Stories
 
 ## Story/Task Details
 - [ ] Task1
