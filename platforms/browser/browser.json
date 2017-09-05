@@ -15,6 +15,9 @@
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "call-number": {
+            "PACKAGE_NAME": "com.aa.tipline"
         }
     },
     "dependent_plugins": {},
@@ -26,11 +29,20 @@
             "clobbers": [
                 "window.StatusBar"
             ]
+        },
+        {
+            "file": "plugins/call-number/www/CallNumber.js",
+            "id": "call-number.CallNumber",
+            "pluginId": "call-number",
+            "clobbers": [
+                "call"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.2",
         "cordova-plugin-console": "1.0.7",
-        "cordova-plugin-statusbar": "1.0.1"
+        "cordova-plugin-statusbar": "1.0.1",
+        "call-number": "0.0.2"
     }
 }

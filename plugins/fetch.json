@@ -22,5 +22,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "call-number": {
+        "source": {
+            "type": "registry",
+            "id": "https://github.com/Rohfosho/CordovaCallNumberPlugin.git"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
