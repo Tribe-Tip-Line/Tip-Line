@@ -24,7 +24,25 @@ function callPressed(number) {
 function onSuccess(result){
     console.log("Success:"+result);
 }
-  
+
 function onError(result) {
     console.log("Error:"+result);
+}
+
+//Functions for Geolocation plugin
+function onSuccessfulGeolocation(position) {
+    var element = document.getElementById('geolocation-test');
+    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                        'Longitude: ' + position.coords.longitude     + '<br />' +
+                        '<hr />'      + element.innerHTML;
+}
+
+// onError Callback receives a PositionError object
+function onErrorGeolocation(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
+
+function geolocatePressed() {
+    var watchID = navigator.geolocation.watchPosition(onSuccessfulGeolocation, onErrorGeolocation, { timeout: 30000 });
 }

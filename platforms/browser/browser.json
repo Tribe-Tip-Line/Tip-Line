@@ -18,6 +18,12 @@
         },
         "call-number": {
             "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.aa.tipline"
         }
     },
     "dependent_plugins": {},
@@ -43,6 +49,8 @@
         "cordova-plugin-whitelist": "1.2.2",
         "cordova-plugin-console": "1.0.7",
         "cordova-plugin-statusbar": "1.0.1",
-        "call-number": "0.0.2"
+        "call-number": "0.0.2",
+        "cordova-plugin-compat": "1.1.0",
+        "cordova-plugin-geolocation": "2.4.3"
     }
 }
