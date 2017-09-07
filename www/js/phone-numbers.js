@@ -52,7 +52,10 @@ var data = {
         outer.class = 'item-content';
         inp.type = "button";
         inp.value = number;
-        inp.onclick = "callPressed(" + number + ")";
+        inp.setAttribute("id", number);
+        inp.onclick = function() {
+            callPressed(this.id);
+        };
         form.appendChild(inp);
         form.appendChild(place);
         inner.appendChild(form);
