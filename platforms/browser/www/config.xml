@@ -15,5 +15,9 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <icon density="ldpi" platform="android" src="www/lib/assets/ic_launcher-web.png" />
+    <splash density="land-ldpi" platform="android" src="www/lib/assets/ic_launcher-web.png" />
+    <icon density="ldpi" platform="ios" src="www/lib/assets/ic_launcher-web.png" />
+    <splash density="land-ldpi" platform="ios" src="www/lib/assets/ic_launcher-web.png" />
     <preference name="DisallowOverscroll" value="true" />
 </widget>

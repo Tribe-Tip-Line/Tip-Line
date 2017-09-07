@@ -25,7 +25,12 @@
         <preference name="BackupWebStorage" value="none" />
     </platform>
     <preference name="DisallowOverscroll" value="true" />
+    <icon density="ldpi" platform="android" src="www/lib/assets/ic_launcher-web.png" />
+    <splash density="land-ldpi" platform="android" src="www/lib/assets/ic_launcher-web.png" />
+    <icon density="ldpi" platform="ios" src="www/lib/assets/ic_launcher-web.png" />
+    <splash density="land-ldpi" platform="ios" src="www/lib/assets/ic_launcher-web.png" />
     <engine name="android" spec="^6.2.3" />
+    <engine name="ios" spec="^4.4.0" />
     <plugin name="call-number" spec="git+https://github.com/Rohfosho/CordovaCallNumberPlugin.git" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />

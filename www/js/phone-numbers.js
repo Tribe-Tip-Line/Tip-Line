@@ -36,33 +36,34 @@ var data = {
     "Indonesia" : "622157951275"
     };
 
+
     for (var key in data) {
         var country = key;
         var number = data[key];
 
-        var badge = document.createElement('ul');
-        var form = document.createElement('form');
-        var inp = document.createElement('input');
-        var outer = document.createElement('div');
-        var inner = document.createElement('div');
+        // var inp = document.createElement('input');
         var li = document.createElement('li');
-        var place = document.createElement('h1');
-        place.innerHTML = country;
-        inner.class = 'item-inner';
-        outer.class = 'item-content';
-        inp.type = "button";
-        inp.value = number;
-        inp.setAttribute("id", number);
-        inp.onclick = function() {
+        var a = document.createElement('a');
+        var text = document.createTextNode(country + ": " + number);
+
+        a.className = "item-link list-button";
+        a.setAttribute("id", number);
+        a.onclick = function() {
             callPressed(this.id);
         };
-        form.appendChild(inp);
-        form.appendChild(place);
-        inner.appendChild(form);
-        outer.appendChild(inner);
-        li.appendChild(outer);
-        badge.appendChild(li);
-        document.getElementById("number-list").appendChild(badge);
+        a.appendChild(text);
+        
+        
+        // inp.className = "item-link list-button";
+        // inp.type = "button";
+        // inp.value = country + ": " + number;
+        // inp.setAttribute("id", number);
+        // inp.onclick = function() {
+        //     callPressed(this.id);
+        // };
+        // li.appendChild(inp);
+        li.appendChild(a);
+        document.getElementById("number-list").appendChild(li);
     }
 
 /*
