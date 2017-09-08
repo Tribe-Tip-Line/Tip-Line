@@ -1,2 +1,2 @@
 # Tip-Line
-CS 2340 Junior Design - Airline Ambassadors Internation Tip Line Application
+CS 3312 Junior Design - Airline Ambassadors International Tip Line Application
