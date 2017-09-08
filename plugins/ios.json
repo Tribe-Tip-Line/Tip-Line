@@ -13,6 +13,10 @@
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.aa.tipline"
         },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.aa.tipline"
         },
@@ -20,5 +24,9 @@
             "PACKAGE_NAME": "com.aa.tipline"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        }
+    }
 }
