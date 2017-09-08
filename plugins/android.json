@@ -7,23 +7,19 @@
         "files": {}
     },
     "installed_plugins": {
+        "call-number": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
         "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.aa.tipline"
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.aa.tipline"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.aa.tipline"
-        },
-        "call-number": {
-            "PACKAGE_NAME": "com.aa.tipline"
-        },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.aa.tipline"
-        },
-        "cordova-plugin-googlemaps": {
-            "API_KEY_FOR_ANDROID": "AIzaSyDCuwSC3-t9rF_a2cm7o8fb-Zd76d555uI",
             "PACKAGE_NAME": "com.aa.tipline"
         }
     },
