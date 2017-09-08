@@ -11,7 +11,11 @@
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
             "call-number": {},
-            "cordova-plugin-geolocation": {}
+            "cordova-plugin-geolocation": {},
+            "cordova-plugin-googlemaps": {
+                "API_KEY_FOR_ANDROID": "AIzaSyDCuwSC3-t9rF_a2cm7o8fb-Zd76d555uI",
+                "API_KEY_FOR_IOS": "AIzaSyABdeWWYb0yMGjSwPkTLBEJ_pUhynp0I9g"
+            }
         }
     },
     "dependencies": {
@@ -20,6 +24,7 @@
         "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-console": "~1.0.1",
         "cordova-plugin-geolocation": "^2.4.3",
+        "cordova-plugin-googlemaps": "^2.0.6",
         "cordova-plugin-statusbar": "~1.0.1",
         "cordova-plugin-whitelist": "~1.2.0"
     }

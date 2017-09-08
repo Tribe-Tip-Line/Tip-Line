@@ -21,6 +21,10 @@
         },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-googlemaps": {
+            "API_KEY_FOR_ANDROID": "AIzaSyDCuwSC3-t9rF_a2cm7o8fb-Zd76d555uI",
+            "PACKAGE_NAME": "com.aa.tipline"
         }
     },
     "dependent_plugins": {

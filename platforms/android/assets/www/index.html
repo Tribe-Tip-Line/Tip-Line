@@ -70,12 +70,12 @@
                 <ul>
                   <li><a href="about.html" class="item-link">
                       <div class="item-content">
-                        <div class="item-inner"> 
+                        <div class="item-inner">
                           <div class="item-title">About Us</div>
                         </div>
                       </div></a></li>
                   <li><a href="services.html" class="item-link">
-                      <div class="item-content"> 
+                      <div class="item-content">
                         <div class="item-inner">
                           <div class="item-title">Services</div>
                         </div>
@@ -114,7 +114,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-name"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">Name</div>
                         <div class="item-input">
                           <input type="text" placeholder="Your name">
@@ -125,7 +125,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-email"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">E-mail</div>
                         <div class="item-input">
                           <input type="email" placeholder="E-mail">
@@ -136,7 +136,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-url"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">URL</div>
                         <div class="item-input">
                           <input type="url" placeholder="URL">
@@ -147,7 +147,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-password"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">Password</div>
                         <div class="item-input">
                           <input type="password" placeholder="Password">
@@ -158,7 +158,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-tel"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">Phone</div>
                         <div class="item-input">
                           <input type="tel" placeholder="Phone">
@@ -169,7 +169,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-gender"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">Gender</div>
                         <div class="item-input">
                           <select>
@@ -183,7 +183,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-calendar"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">Birth date</div>
                         <div class="item-input">
                           <input type="date" placeholder="Birth day" value="2014-04-30">
@@ -194,7 +194,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-toggle"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">Switch</div>
                         <div class="item-input">
                           <label class="label-switch">
@@ -241,21 +241,33 @@
                 <ul>
                   <li>
                       <div class="item-content">
-                        <div class="item-inner"> 
+                        <div class="item-inner">
                           <form>
                             <input type="button" value="6784567890" onclick="callPressed(value)" />
                           </form>
                         </div>
-                      </div></li>
+                      </div>
+                  </li>
                   <li>
-                      <div class="item-content"> 
+                      <div class="item-content">
                         <div class="item-inner">
                           <!-- <div class="item-title">Phone Number 2</div> -->
                           <form>
                             <input type="button" value="7703457722" onclick="callPressed(value)" />
                           </form>
                         </div>
-                      </div></li>
+                      </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                          <form>
+                            <input type="button" value="press to geolocate position" onclick="geolocatePressed()"/>
+                            <p id="geolocation-test">test information here</p>
+                          </form>
+                        </div>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -274,5 +286,7 @@
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
     <script src="cordova.js"></script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGtGQXvHVbeWGe2tGhY0zXZgaoohtG2zk&callback=initMap"
+  type="text/javascript"></script>
   </body>
 </html>

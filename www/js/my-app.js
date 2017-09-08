@@ -32,9 +32,17 @@ function onError(result) {
 //Functions for Geolocation plugin
 function onSuccessfulGeolocation(position) {
     var element = document.getElementById('geolocation-test');
-    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                        'Longitude: ' + position.coords.longitude     + '<br />' +
-                        '<hr />'      + element.innerHTML;
+    var latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)};
+    var geocoder = new google.maps.Geocoder;
+    geocoder.geocode({'location': latlng}, function(results, status) {
+        if (status === 'OK') {
+            if (results[0]) {
+                element.innerHTML = results[0].formatted_address;
+                //Below line is used to get strictly the country name from the address.
+                //element.innerHTML = 'Country: ' + results[0].address_components[6].long_name;
+            }
+        }
+    })
 }
 
 // onError Callback receives a PositionError object
