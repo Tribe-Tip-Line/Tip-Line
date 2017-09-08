@@ -14,11 +14,11 @@ var view3 = myApp.addView('#view-3');
 var view4 = myApp.addView('#view-4');
 var phoneView = myApp.addView('#view-5');
 
-
 // Functions for Call plugin
 function callPressed(number) {
     console.log(number);
-    window.plugins.CallNumber.callNumber(onSuccess, onError, number, false);
+    var num = number.replace(/- /g, "");
+    window.plugins.CallNumber.callNumber(onSuccess, onError, num, false);
 }
 
 function onSuccess(result){

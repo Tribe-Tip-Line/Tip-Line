@@ -4,7 +4,8 @@
     "displayName": "Tip Line",
     "cordova": {
         "platforms": [
-            "android"
+            "android",
+            "ios"
         ],
         "plugins": {
             "cordova-plugin-console": {},
@@ -22,6 +23,7 @@
         "call-number": "git+https://github.com/Rohfosho/CordovaCallNumberPlugin.git",
         "cordova-android": "^6.2.3",
         "cordova-plugin-compat": "^1.1.0",
+        "cordova-ios": "^4.4.0",
         "cordova-plugin-console": "~1.0.1",
         "cordova-plugin-geolocation": "^2.4.3",
         "cordova-plugin-googlemaps": "^2.0.6",
