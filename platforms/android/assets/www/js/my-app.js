@@ -54,5 +54,5 @@ function onErrorGeolocation(error) {
 }
 
 function geolocatePressed() {
-    var watchID = navigator.geolocation.watchPosition(onSuccessfulGeolocation, onErrorGeolocation, { timeout: 30000 });
+    var watchID = navigator.geolocation.watchPosition(onSuccessfulGeolocation, onErrorGeolocation, {maximumAge: 300000, timeout: 30000, enableHighAccuracy : true });
 }
