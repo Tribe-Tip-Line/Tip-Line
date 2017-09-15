@@ -15,5 +15,10 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <preference name="DisallowOverscroll" value="true" />
+    <icon density="ldpi" platform="android" src="www/lib/assets/ic_launcher-web.png" />
+    <splash density="land-ldpi" platform="android" src="www/lib/assets/ic_launcher-web.png" />
+    <icon density="ldpi" platform="ios" src="www/lib/assets/ic_launcher-web.png" />
+    <splash density="land-ldpi" platform="ios" src="www/lib/assets/ic_launcher-web.png" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarStyle" value="default" />
 </widget>

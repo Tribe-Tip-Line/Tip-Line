@@ -4,17 +4,24 @@
     "displayName": "Tip Line",
     "cordova": {
         "platforms": [
-            "android"
+            "android",
+            "ios"
         ],
         "plugins": {
             "cordova-plugin-console": {},
             "cordova-plugin-statusbar": {},
-            "cordova-plugin-whitelist": {}
+            "cordova-plugin-whitelist": {},
+            "call-number": {},
+            "cordova-plugin-geolocation": {}
         }
     },
     "dependencies": {
-        "cordova-android": "~6.2.3",
+        "call-number": "git+https://github.com/Rohfosho/CordovaCallNumberPlugin.git",
+        "cordova-android": "^6.2.3",
+        "cordova-ios": "^4.4.0",
+        "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-console": "~1.0.1",
+        "cordova-plugin-geolocation": "^2.4.3",
         "cordova-plugin-statusbar": "~1.0.1",
         "cordova-plugin-whitelist": "~1.2.0"
     }

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/my-app.css">
+    <!-- Path to Framework7 Icon CSS -->
+    <link rel="stylesheet" href="css/framework7-icons.css">
   </head>
   <body>
     <!-- Status bar overlay for fullscreen mode-->
@@ -68,12 +70,12 @@
                 <ul>
                   <li><a href="about.html" class="item-link">
                       <div class="item-content">
-                        <div class="item-inner"> 
+                        <div class="item-inner">
                           <div class="item-title">About Us</div>
                         </div>
                       </div></a></li>
                   <li><a href="services.html" class="item-link">
-                      <div class="item-content"> 
+                      <div class="item-content">
                         <div class="item-inner">
                           <div class="item-title">Services</div>
                         </div>
@@ -112,7 +114,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-name"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">Name</div>
                         <div class="item-input">
                           <input type="text" placeholder="Your name">
@@ -123,7 +125,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-email"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">E-mail</div>
                         <div class="item-input">
                           <input type="email" placeholder="E-mail">
@@ -134,7 +136,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-url"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">URL</div>
                         <div class="item-input">
                           <input type="url" placeholder="URL">
@@ -145,7 +147,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-password"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">Password</div>
                         <div class="item-input">
                           <input type="password" placeholder="Password">
@@ -156,7 +158,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-tel"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">Phone</div>
                         <div class="item-input">
                           <input type="tel" placeholder="Phone">
@@ -167,7 +169,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-gender"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">Gender</div>
                         <div class="item-input">
                           <select>
@@ -181,7 +183,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-calendar"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">Birth date</div>
                         <div class="item-input">
                           <input type="date" placeholder="Birth day" value="2014-04-30">
@@ -192,7 +194,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-form-toggle"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title label">Switch</div>
                         <div class="item-input">
                           <label class="label-switch">
@@ -235,9 +237,24 @@
           <div data-page="index-5" class="page">
             <!-- Scrollable page content-->
             <div class="page-content">
-              <div class="content-block-title">It's Lit</div>
-              <div class="content-block">
-                <p>YESSSSSSSSSSSSSSSSSSSSSSSSSSSS</p>
+              
+              <div class="card card-header-pic">
+                <div style="background-image:url(lib/assets/aa_logo.png)" valign="bottom" class="card-header color-white no-border"></div>
+              </div>
+              <div class="card">
+                  <div class="card-content">
+                    <div class="card-content-inner">
+                        <form>
+                            <input type="button" class="button" value="press to geolocate position" onclick="geolocatePressed()"/>
+                            <p id="geolocation-test" style="text-align: center">test information here</p>
+                          </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="list-block inset">
+                <ul id="number-list">
+                  <script type="text/javascript" src="js/phone-numbers.js"></script>
+                </ul>
               </div>
             </div>
           </div>
@@ -247,12 +264,20 @@
 
       <!-- Bottom Tabbar-->
       <div class="toolbar tabbar tabbar-labels">
-        <div class="toolbar-inner"><a href="#view-1" class="tab-link active"> <i class="icon tabbar-demo-icon-1"></i><span class="tabbar-label">Information</span></a><a href="#view-2" class="tab-link"><i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label">Inbox</span></a><a href="#view-3" class="tab-link"> <i class="icon tabbar-demo-icon-3"><span class="badge bg-red">4</span></i><span class="tabbar-label">Upload</span></a><a href="#view-4" class="tab-link"> <i class="icon tabbar-demo-icon-4"></i><span class="tabbar-label">Photos</span></a><a href="#view-5" class="tab-link"> <i class="icon tabbar-demo-icon-5"></i><span class="tabbar-label">Call</span></a></div>
+        <div class="toolbar-inner">
+          <a href="#view-1" class="tab-link active"> <i class="icon tabbar-demo-icon-1"></i><span class="tabbar-label">Information</span></a>
+          <!-- <a href="#view-2" class="tab-link"><i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label">Inbox</span></a>
+          <a href="#view-3" class="tab-link"> <i class="icon tabbar-demo-icon-3"><span class="badge bg-red">4</span></i><span class="tabbar-label">Upload</span></a>
+          <a href="#view-4" class="tab-link"> <i class="icon tabbar-demo-icon-4"></i><span class="tabbar-label">Photos</span></a> -->
+          <a href="#view-5" class="tab-link"><i class="f7-icons">phone</i><span class="tabbar-label">Phone</span></a></div>
       </div>
     </div>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
+    <script src="cordova.js"></script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGtGQXvHVbeWGe2tGhY0zXZgaoohtG2zk&callback=initMap"
+  type="text/javascript"></script>
   </body>
 </html>

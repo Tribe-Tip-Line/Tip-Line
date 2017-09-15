@@ -7,15 +7,25 @@
         "files": {}
     },
     "installed_plugins": {
+        "call-number": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.aa.tipline"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
+            "PACKAGE_NAME": "com.aa.tipline"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
+            "PACKAGE_NAME": "com.aa.tipline"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        }
+    }
 }

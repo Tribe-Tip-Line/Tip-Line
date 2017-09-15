@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.aa.tipline" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="CallNumber">
+        <param name="android-package" value="mx.ferreyra.callnumber.CFCallNumber" />
+    </feature>
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
+    </feature>
     <feature name="StatusBar">
         <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
         <param name="onload" value="true" />
@@ -23,8 +29,10 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <icon density="ldpi" platform="android" src="www/lib/assets/ic_launcher-web.png" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
-    <preference name="DisallowOverscroll" value="true" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarStyle" value="default" />
     <preference name="android-minSdkVersion" value="14" />
 </widget>
