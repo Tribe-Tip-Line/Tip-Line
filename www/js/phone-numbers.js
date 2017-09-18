@@ -39,11 +39,11 @@ var data = {
     };
 
 
+    // Iterates through the data set to create the html for the list of phone numbers
     for (var key in data) {
         var country = key;
         var number = data[key];
 
-        // var inp = document.createElement('input');
         var li = document.createElement('li');
         var a = document.createElement('a');
         var text = document.createTextNode(country + ": " + number);
@@ -54,28 +54,7 @@ var data = {
             callPressed(this.id);
         };
         a.appendChild(text);
-        
-        
-        // inp.className = "item-link list-button";
-        // inp.type = "button";
-        // inp.value = country + ": " + number;
-        // inp.setAttribute("id", number);
-        // inp.onclick = function() {
-        //     callPressed(this.id);
-        // };
-        // li.appendChild(inp);
         li.appendChild(a);
         document.getElementById("number-list").appendChild(li);
     }
 
-/*
-    <li>
-    <div class="item-content">
-    <div class="item-inner">
-<form>
-<input type="button" value="888-373-7888" onclick="callPressed(value)" />
-    <a>Polaris</a>
-    </form>
-    </div>
-    </div></li>
-    */
