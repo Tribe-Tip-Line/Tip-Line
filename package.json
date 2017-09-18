@@ -1,20 +1,20 @@
 {
-    "name": "com.phonegap.helloworld",
-    "version": "1.0.0",
-    "displayName": "Tip Line",
-    "cordova": {
-        "platforms": [
-            "android",
-            "ios"
-        ],
-        "plugins": {
-            "cordova-plugin-console": {},
-            "cordova-plugin-statusbar": {},
-            "cordova-plugin-whitelist": {},
-            "call-number": {},
-            "cordova-plugin-geolocation": {}
-        }
-    },
+  "name": "com.phonegap.helloworld",
+  "version": "1.0.0",
+  "displayName": "Tip Line",
+  "cordova": {
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "plugins": {
+      "cordova-plugin-console": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-whitelist": {},
+      "call-number": {},
+      "cordova-plugin-geolocation": {}
+    }
+  },
   "dependencies": {
     "call-number": "git+https://github.com/Rohfosho/CordovaCallNumberPlugin.git",
     "cordova-android": "^6.2.3",
@@ -24,6 +24,7 @@
     "cordova-plugin-geolocation": "^2.4.3",
     "cordova-plugin-statusbar": "~1.0.1",
     "cordova-plugin-whitelist": "~1.2.0",
+    "mongodb": "^2.2.31",
     "mongolab-data-api": "^1.1.6"
   }
 }
