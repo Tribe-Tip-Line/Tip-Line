@@ -1,5 +1,7 @@
 // Initialize your app
-var myApp = new Framework7();
+var myApp = new Framework7({
+    modalTitle: "TIP Line"
+});
 
 // Export selectors engine
 var $$ = Dom7;
@@ -56,3 +58,4 @@ function onErrorGeolocation(error) {
 function geolocatePressed() {
     var watchID = navigator.geolocation.watchPosition(onSuccessfulGeolocation, onErrorGeolocation, {maximumAge: 300000, timeout: 30000, enableHighAccuracy : true });
 }
+

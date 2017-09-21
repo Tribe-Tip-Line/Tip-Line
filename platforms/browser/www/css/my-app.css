@@ -43,5 +43,15 @@ i.tabbar-demo-icon-4 {
   color: #007aff;
 }
 
+.item-inner {
+  color: #007aff;
+}
+
+textarea {
+  width: 100%;
+  height: 50vh;
+  resize: none;
+}
+
 
 
