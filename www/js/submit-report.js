@@ -1,8 +1,11 @@
 
+// Report object to be sent to authorities/database
 var report = {
     "User": "test user"
 };
 
+
+// Array objects for each media content
 var images = [];
 var videos = [];
 var audios = [];
@@ -28,6 +31,7 @@ $$('.confirm-title-ok-cancel').on('click', function () {
             report["Audios"] = audios;
         }
         myApp.alert('Your report has successfully been submitted');
+        
       },
       function () {
         // Cancel has been pressed, do nothing. 
@@ -56,6 +60,7 @@ var captureSuccessImage = function(mediaFiles) {
         images.push(mediaFiles[i]);
         // do something interesting with the file
     }
+    // Iterates through the images array to display the the images attached 
     var text = "";
     for (var j = 0; j < images.length; j++) {
         text += "<img src=" + images[j].fullPath + ">" + "</img>&nbsp;";
@@ -76,6 +81,7 @@ var captureSuccessVideo = function(mediaFiles) {
         videos.push(mediaFiles[i]);
         // do something interesting with the file
     }
+    // Iterates through the videos array to display the titles of the videos attached
     var text = "";
     for (var j = 0; j < videos.length; j++) {
         text += videos[j].name + "<br>";
@@ -93,6 +99,7 @@ var captureSuccessAudio = function(mediaFiles) {
         audios.push(mediaFiles[i]);
         // do something interesting with the file
     }
+    // Iterates through the audios array to display the titles of the audios attached
     var text = "";
     for (var j = 0; j < audios.length; j++) {
         text += audios[j].name + "<br>";

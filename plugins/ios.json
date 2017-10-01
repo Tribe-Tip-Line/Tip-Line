@@ -13,17 +13,23 @@
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.aa.tipline"
         },
-        "cordova-plugin-statusbar": {
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.aa.tipline"
         },
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-media-capture": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "MICROPHONE_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.aa.tipline"
         },
         "cordova-plugin-nativegeocoder": {
             "PACKAGE_NAME": "com.aa.tipline"
         },
-        "cordova-plugin-geolocation": {
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.aa.tipline"
         }
     },
@@ -32,6 +38,14 @@
             "PACKAGE_NAME": "com.aa.tipline"
         },
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-file": {
             "PACKAGE_NAME": "com.aa.tipline"
         }
     }

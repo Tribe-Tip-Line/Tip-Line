@@ -109,11 +109,8 @@ function onSuccessfulGeolocation(position) {
             }
         }
 
-        
         data["Tip Line"] = "8028726199";
         data["Emergency"] = "911";
-
-
 
         for (var key in data) {
         var country = key;

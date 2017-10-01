@@ -29,7 +29,6 @@
     <icon density="ldpi" platform="android" src="www/lib/assets/ic_launcher-web.png" />
     <engine name="android" spec="^6.2.3" />
     <engine name="browser" spec="^4.1.0" />
-    <engine name="ios" spec="^4.4.0" />
     <plugin name="call-number" spec="git+https://github.com/Rohfosho/CordovaCallNumberPlugin.git" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3">
@@ -38,4 +37,5 @@
     <plugin name="cordova-plugin-nativegeocoder" spec="^2.0.2" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
+    <engine name="ios" spec="~4.4.0" />
 </widget>
