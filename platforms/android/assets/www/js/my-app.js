@@ -64,7 +64,7 @@ function registerUser() {
 
 function startScreen() {
     //will need to change the if to check against keys in database
-    if (!(window.localStorage.getItem("key") === 'WXYZ')) {
+    if (!(window.localStorage.getItem("key") === 'XYZ')) {
         window.location.replace("login.html");
     }
 }
