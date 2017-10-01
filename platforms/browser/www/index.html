@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/my-app.css">
     <!-- Path to Framework7 Icon CSS -->
     <link rel="stylesheet" href="css/framework7-icons.css">
+    
   </head>
   <body>
     <!-- Status bar overlay for fullscreen mode-->
@@ -45,19 +46,10 @@
               <div class="card card-header-pic">
                 <div style="background-image:url(lib/assets/aa_logo.png)" valign="bottom" class="card-header color-white no-border"></div>
               </div>
-              <div class="card">
-                  <div class="card-content">
-                    <div class="card-content-inner">
-                        <form>
-                            <input type="button" class="button" value="press to geolocate position" onclick="geolocatePressed()"/>
-                            <p id="geolocation-test" style="text-align: center">test information here</p>
-                          </form>
-                    </div>
-                  </div>
-                </div>
-                <div class="list-block inset">
+             
+              <div class="list-block inset">
                 <ul id="number-list">
-                  <script type="text/javascript" src="js/phone-numbers.js"></script>
+                  
                 </ul>
               </div>
             </div>
@@ -85,7 +77,7 @@
                       <li class="swipeout">
                         <div class="swipeout-content item-content">
                           <div class="item-media"><i class="icon f7-icons">photos</i></div>
-                          <div class="item-inner">Add Image<i class="icon f7-icons add image-1">add_round</i></div>
+                          <div class="item-inner"><i id="add-image">Add Image</i><i class="icon f7-icons add image-1">add_round</i></div>
                         </div>
                         <div class="swipeout-actions-right">
                           <a href="#" class="action1">Remove</a>
@@ -94,7 +86,7 @@
                       <li class="swipeout">
                         <div class="swipeout-content item-content">
                           <div class="item-media"><i class="icon f7-icons">film</i></div>
-                          <div class="item-inner">Add Video<i class="icon f7-icons add video-1">add_round</i></div>
+                          <div class="item-inner"><i id="add-video">Add Video</i><i class="icon f7-icons add video-1">add_round</i></div>
                         </div>
                         <div class="swipeout-actions-right">
                           <a href="#" class="action1">Remove</a>
@@ -103,7 +95,7 @@
                       <li class="swipeout">
                         <div class="swipeout-content item-content">
                           <div class="item-media"><i class="icon f7-icons">volume</i></div>
-                          <div class="item-inner">Add Audio<i class="icon f7-icons add audio-1">add_round</i></div>
+                          <div class="item-inner"><i id="add-audio">Add Audio</i><i class="icon f7-icons add audio-1">add_round</i></div>
                         </div>
                         <div class="swipeout-actions-right">
                           <a href="#" class="action1">Remove</a>
@@ -117,15 +109,13 @@
               <div class="card">
                 <div class="card-content">
                   <div class="card-content-inner">
-                    <textarea placeholder="Add a description"></textarea>
+                    <textarea id="report-description" placeholder="Add a description"></textarea>
                   </div>
                   <div class="card-footer">
                     <input type="button" class="button active confirm-title-ok-cancel" value="Submit"/>
                   </div>
                 </div>
               </div>
-  
-    
               <!-- <textarea placeholder="Message"></textarea><a href="#" class="link">Send</a> -->
             </div>
           </div>
@@ -157,6 +147,7 @@
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
     <script type="text/javascript" src="js/submit-report.js"></script>
+    <script type="text/javascript" src="js/phone-numbers.js"></script>
     <script src="cordova.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGtGQXvHVbeWGe2tGhY0zXZgaoohtG2zk&callback=initMap"
   type="text/javascript"></script>

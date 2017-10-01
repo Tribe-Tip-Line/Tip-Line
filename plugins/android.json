@@ -16,6 +16,12 @@
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.aa.tipline"
         },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-nativegeocoder": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.aa.tipline"
         },
@@ -24,7 +30,16 @@
         }
     },
     "dependent_plugins": {
+        "cordova-plugin-add-swift-support": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-file": {
             "PACKAGE_NAME": "com.aa.tipline"
         }
     }
