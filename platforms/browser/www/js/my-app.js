@@ -61,7 +61,7 @@ var listNumbers = {
 
 // Data object with list of numbers to be shown on the screen
 var data = {
-    "National Hotline": "18883737888" 
+    "National Hotline": "18883737888"
 };
 
 var country;
@@ -90,19 +90,19 @@ function onError(result) {
 }
 
 //Functions for Geolocation plugin
-function onSuccessfulGeolocation(position) {  
+function onSuccessfulGeolocation(position) {
 
 
-    // Function that reverse geocodes and returns the country code                       
+    // Function that reverse geocodes and returns the country code
     nativegeocoder.reverseGeocode(success, failure, position.coords.latitude, position.coords.longitude);
-    
-    // If reverse geocoding is successful, it iterates throught the list of numbers to check if there is a number corresponding 
+
+    // If reverse geocoding is successful, it iterates throught the list of numbers to check if there is a number corresponding
     // to that country and if there is, it will add it to the data object. Then it generates html to display the list of numbers
     function success(result) {
-        
-        country = result.countryCode;  
+
+        country = result.countryCode;
         // element.innerHTML = 'Country: ' + country + '<br />';
-        
+
         for (var num in listNumbers) {
             if (num === country) {
                 data[result.countryName] = listNumbers[num];
@@ -129,18 +129,40 @@ function onSuccessfulGeolocation(position) {
         li.appendChild(a);
         document.getElementById("number-list").appendChild(li);
         }
-      
+
     }
     function failure(err) {
       alert(JSON.stringify(err));
     }
-    
+
 }
 
 // onError Callback receives a PositionError object
 function onErrorGeolocation(error) {
     alert('code: '    + error.code    + '\n' +
           'message: ' + error.message + '\n');
+}
+
+function validateUser() {
+    var key = document.getElementById('reg-key').value;
+    if (key === 'XYZ') {
+        window.localStorage.setItem("key", key);
+        window.location.replace("registration.html");
+    } else {
+        //some warning for invalid input popup
+    }
+}
+
+function registerUser() {
+    //need to save to database once that is set up
+    window.location.replace("index.html");
+}
+
+function startScreen() {
+    //will need to change the if to check against keys in database
+    if (!(window.localStorage.getItem("key") === 'XYZ')) {
+        window.location.replace("login.html");
+    }
 }
 
 
