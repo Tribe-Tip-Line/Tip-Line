@@ -27,6 +27,12 @@
         },
         "cordova-plugin-googlemaps": {
             "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-nativegeocoder": {
+            "PACKAGE_NAME": "com.aa.tipline"
+        },
+        "cordova-plugin-add-swift-support": {
+            "PACKAGE_NAME": "com.aa.tipline"
         }
     },
     "dependent_plugins": {},
@@ -216,6 +222,14 @@
             "clobbers": [
                 "plugin.google.maps"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-nativegeocoder/www/NativeGeocoder.js",
+            "id": "cordova-plugin-nativegeocoder.NativeGeocoder",
+            "pluginId": "cordova-plugin-nativegeocoder",
+            "clobbers": [
+                "nativegeocoder"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -225,6 +239,8 @@
         "call-number": "0.0.2",
         "cordova-plugin-geolocation": "2.4.3",
         "cordova-plugin-compat": "1.1.0",
-        "cordova-plugin-googlemaps": "2.0.6"
+        "cordova-plugin-googlemaps": "2.0.6",
+        "cordova-plugin-nativegeocoder": "2.0.2",
+        "cordova-plugin-add-swift-support": "1.7.0"
     }
 }
