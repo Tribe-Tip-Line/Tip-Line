@@ -10,7 +10,7 @@
         "spec": ">=1.0.0 <2.0.0",
         "type": "range"
       },
-      "/Users/williamcheng/Desktop/Tip-Line/node_modules"
+      "/Users/kentakawaguchi/Desktop/Tip-Line/node_modules"
     ]
   ],
   "_from": "cordova-plugin-compat@>=1.0.0 <2.0.0",
@@ -45,7 +45,7 @@
   "_shasum": "92bdf169feb61205323dcc96a3ff8348e37e87fc",
   "_shrinkwrap": null,
   "_spec": "cordova-plugin-compat@^1.0.0",
-  "_where": "/Users/williamcheng/Desktop/Tip-Line/node_modules",
+  "_where": "/Users/kentakawaguchi/Desktop/Tip-Line/node_modules",
   "author": {
     "name": "Apache Software Foundation"
   },
