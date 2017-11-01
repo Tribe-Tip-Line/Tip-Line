@@ -155,6 +155,14 @@ function validateUser() {
 
 function registerUser() {
     //need to save to database once that is set up
+    user = {}
+    user['firstname'] = document.getElementById('first-name').value;
+    user['lastname'] = document.getElementById('last-name').value;
+    user['email'] = document.getElementById('email').value;
+    console.log("Attempting to add User to DB");
+    //mongoAddUser(user);
+    console.log("Attempt Completed");
+
     window.location.replace("index.html");
 }
 

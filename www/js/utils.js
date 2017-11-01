@@ -1,0 +1,3 @@
+function generateUserID(user) {
+    return 
+}
