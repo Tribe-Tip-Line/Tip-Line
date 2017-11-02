@@ -153,10 +153,20 @@ function validateUser() {
     }
 }
 
+
+// Function that registers user to database
 function registerUser() {
     //need to save to database once that is set up
-    window.location.replace("index.html");
+    console.log("Attempting to add User to DB");
+    user = {}
+    user['firstname'] = document.getElementById('first-name').value;
+    user['lastname'] = document.getElementById('last-name').value;
+    user['email'] = document.getElementById('email').value;
+    console.log(user);
+    addUser(user);
+    console.log("Attempt Completed");
 }
+
 
 function startScreen() {
     //will need to change the if to check against keys in database
