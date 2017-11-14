@@ -16,6 +16,7 @@ var $$ = Dom7;
 // var view4 = myApp.addView('#view-4');
 var phoneView = myApp.addView('#view-5');
 
+
 // List of tip line numbers based on location
 var listNumbers = {
     "National Hotline" : "18883737888",
@@ -65,7 +66,6 @@ var data = {
 };
 
 var country;
-
 
 // Check if device is ready and calls device ready function
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -143,37 +143,22 @@ function onErrorGeolocation(error) {
           'message: ' + error.message + '\n');
 }
 
-function validateUser() {
-    var key = document.getElementById('reg-key').value;
-    if (key === 'XYZ') {
-        window.localStorage.setItem("key", key);
-        window.location.replace("registration.html");
-    } else {
-        //some warning for invalid input popup
-    }
-}
-
-
-// Function that registers user to database
-function registerUser() {
-    //need to save to database once that is set up
-    console.log("Attempting to add User to DB");
-    user = {}
-    user['firstname'] = document.getElementById('first-name').value;
-    user['lastname'] = document.getElementById('last-name').value;
-    user['email'] = document.getElementById('email').value;
-    console.log(user);
-    addUser(user);
-    console.log("Attempt Completed");
-}
 
 
 function startScreen() {
-    //will need to change the if to check against keys in database
-    if (!(window.localStorage.getItem("key") === 'XYZ')) {
+    // If local storage contains a key, then they have already entered a valid key and can use the app
+    // otherwise, take them to the key registration page
+    if (window.localStorage.getItem("key") == null) {
         window.location.replace("login.html");
     }
+    
 }
+
+
+
+
+
+
 
 
 

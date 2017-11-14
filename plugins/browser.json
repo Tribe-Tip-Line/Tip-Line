@@ -24,6 +24,9 @@
     },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.aa.tipline"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.aa.tipline"
     }
   },
   "dependent_plugins": {
@@ -31,6 +34,9 @@
       "PACKAGE_NAME": "com.aa.tipline"
     },
     "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.aa.tipline"
+    },
+    "cordova-plugin-file": {
       "PACKAGE_NAME": "com.aa.tipline"
     }
   }

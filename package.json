@@ -16,7 +16,8 @@
       "cordova-plugin-nativegeocoder": {},
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": " "
-      }
+      },
+      "cordova-plugin-file-transfer": {}
     }
   },
   "dependencies": {
@@ -29,11 +30,13 @@
     "cordova-plugin-compat": "^1.1.0",
     "cordova-plugin-console": "~1.0.1",
     "cordova-plugin-file": "^4.0.0",
+    "cordova-plugin-file-transfer": "^1.6.3",
     "cordova-plugin-geolocation": "^2.4.3",
     "cordova-plugin-media-capture": "^1.4.3",
     "cordova-plugin-nativegeocoder": "^2.0.2",
     "cordova-plugin-statusbar": "~1.0.1",
     "cordova-plugin-whitelist": "~1.2.0",
+    "jshashes": "^1.0.7",
     "mongodb": "^2.2.31",
     "mongolab-data-api": "^1.1.6"
   }

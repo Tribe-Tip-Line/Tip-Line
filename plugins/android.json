@@ -27,6 +27,9 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.aa.tipline"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.aa.tipline"
     }
   },
   "dependent_plugins": {
