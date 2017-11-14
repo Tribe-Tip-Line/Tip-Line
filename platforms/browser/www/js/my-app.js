@@ -91,8 +91,6 @@ function onError(result) {
 
 //Functions for Geolocation plugin
 function onSuccessfulGeolocation(position) {
-
-
     // Function that reverse geocodes and returns the country code
     nativegeocoder.reverseGeocode(success, failure, position.coords.latitude, position.coords.longitude);
 

@@ -33,7 +33,7 @@ $$('.confirm-title-ok-cancel').on('click', function () {
       function () {
         //Constructs the report object with location, date, description, and its respective media
         //navigator.geolocation.getCurrentPosition(onSuccessfulGeolocationReport, onErrorGeolocation, {maximumAge: 300000, timeout: 30000, enableHighAccuracy : true });
-        report["location"] = "Atlanta, GA";
+        //report["location"] = "Atlanta, GA";
         report["title"] = "Test Title";
         report["date_time"] = date.toUTCString();
         report["flight_num"] = "FJ245";
@@ -43,23 +43,29 @@ $$('.confirm-title-ok-cancel').on('click', function () {
         
         if (images.length > 0) {
             
-            report["Images"] = images;
+            //report["Images"] = images;
             for (var j = 0; j < images.length; j++) {
-                // fileToUploadPath = images[j].fullPath;
-                // upload("image"); 
+                fileToUploadPath = images[j];
+                upload("image"); 
             }
             
         }
+        
         if (videos.length > 0) {
-            report["Videos"] = videos;
-            // for (var j = 0; j < videos.length; j++) {
-            //     fileToUploadPath = video[j].fullPath;
+            //report["Videos"] = videos;
+            for (var j = 0; j < videos.length; j++) {
+                fileToUploadPath = videos[j];
+                //alert(fileToUploadPath);
             //     //myApp.alert(fileToUploadPath);
-            //     uploadVideo(); 
-            // }
+                upload("video"); 
+             }
         }
         if (audios.length > 0) {
-            report["Audios"] = audios;
+            //report["Audios"] = audios;
+            for (var j = 0; j < audios.length; j++) {
+                fileToUploadPath = audios[j];
+                upload("auto");
+            }
         }
         //setTimeout(submitReport(report), 10000);
         submitReport(report);
@@ -91,15 +97,15 @@ var captureSuccessImage = function(mediaFiles) {
     var element = document.getElementById("add-image");
     for (i = 0, len = mediaFiles.length; i < len; i += 1) {
         path = mediaFiles[i].name;
-        images.push(mediaFiles[i]);
-        fileToUploadPath = mediaFiles[i].fullPath;
-        upload("image");
+        images.push(mediaFiles[i].fullPath);
+        //fileToUploadPath = mediaFiles[i].fullPath;
+        //upload("image");
         // do something interesting with the file
     }
     // Iterates through the images array to display the the images attached 
     var text = "";
     for (var j = 0; j < images.length; j++) {
-        text += "<img src=" + images[j].fullPath + ">" + "</img>&nbsp;";
+        text += "<img src=" + images[j] + ">" + "</img>&nbsp;";
         
     }
     if (element.innerHTML === "Add Image") {
@@ -112,20 +118,23 @@ var captureSuccessImage = function(mediaFiles) {
 // capture callback for Videos
 var captureSuccessVideo = function(mediaFiles) {
     var i, path, len;
+    var text = "";
     var element = document.getElementById("add-video");
     for (i = 0, len = mediaFiles.length; i < len; i += 1) {
         path = mediaFiles[i].name;
-        videos.push(mediaFiles[i]);
-        fileToUploadPath = mediaFiles[i].fullPath;
+        videos.push(mediaFiles[i].fullPath);
+        text += mediaFiles[i].name + "<br>";
+        //fileToUploadPath = mediaFiles[i].fullPath;
         // myApp.alert(fileToUploadPath);
-        upload("video");
+        //upload("video");
         // do something interesting with the file
     }
+    // alert(videos);
     // Iterates through the videos array to display the titles of the videos attached
-    var text = "";
-    for (var j = 0; j < videos.length; j++) {
-        text += videos[j].name + "<br>";
-    }
+    
+    // for (var j = 0; j < videos.length; j++) {
+    //     text += videos[j].name + "<br>";
+    // }
     element.innerHTML = text;
 
 };
@@ -134,18 +143,20 @@ var captureSuccessVideo = function(mediaFiles) {
 var captureSuccessAudio = function(mediaFiles) {
     var i, path, len;
     var element = document.getElementById("add-audio");
+    var text = "";
     for (i = 0, len = mediaFiles.length; i < len; i += 1) {
         path = mediaFiles[i].name;
-        audios.push(mediaFiles[i]);
-        fileToUploadPath = mediaFiles[i].fullPath;
-        upload("auto");
+        audios.push(mediaFiles[i].fullPath);
+        text += mediaFiles[i].name + "<br>";
+        //fileToUploadPath = mediaFiles[i].fullPath;
+        //upload("auto");
         // do something interesting with the file
     }
     // Iterates through the audios array to display the titles of the audios attached
-    var text = "";
-    for (var j = 0; j < audios.length; j++) {
-        text += audios[j].name + "<br>";
-    }
+    
+    // for (var j = 0; j < audios.length; j++) {
+    //     text += audios[j].name + "<br>";
+    // }
     element.innerHTML = text;
 
 };
@@ -210,8 +221,8 @@ $$('.image-1').on('click', function () {
 function onSuccessImage(imageURI) {
     var image = document.getElementById('add-image'); // this element does not exist yet
     images.push(imageURI);
-    fileToUploadPath = imageURI;
-    myApp.alert(fileToUploadPath);
+    //fileToUploadPath = imageURI;
+    //myApp.alert(fileToUploadPath);
     if (image.innerHTML == "Add Image") {
         image.innerHTML = "<img src=" + imageURI + "></img>&nbsp;";
     } else {
