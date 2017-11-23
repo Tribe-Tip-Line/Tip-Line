@@ -47,9 +47,27 @@ i.tabbar-demo-icon-4 {
   color: #007aff;
 }
 
-textarea {
+/* textarea {
   width: 100%;
   height: 50vh;
+  resize: none;
+} */
+
+.report-description {
+  width: 100%;
+  height: 50vh;
+  resize: none;
+}
+
+.report-title {
+  width: 100%;
+  height: 2vh;
+  resize: none;
+}
+
+.report-flight {
+  width: 100%;
+  height: 2vh;
   resize: none;
 }
 

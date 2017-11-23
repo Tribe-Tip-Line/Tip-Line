@@ -7,13 +7,11 @@ var CLOUD_NAME = "hq9cel0of",
 
 
 // e.g. file:///path/to/file/image.jpg
-var fileToUploadPath = "xxx";
+var fileToUploadPath = "";
 
 
 // Report object to be sent to authorities/database
-var report = {
-    "User": "test user"
-};
+var report = {};
 
 
 // Array objects for each media content
@@ -34,9 +32,10 @@ $$('.confirm-title-ok-cancel').on('click', function () {
         //Constructs the report object with location, date, description, and its respective media
         //navigator.geolocation.getCurrentPosition(onSuccessfulGeolocationReport, onErrorGeolocation, {maximumAge: 300000, timeout: 30000, enableHighAccuracy : true });
         //report["location"] = "Atlanta, GA";
-        report["title"] = "Test Title";
+        report["user_id"] = window.localStorage.getItem("id");
+        report["title"] = document.getElementById("report-title").value;
         report["date_time"] = date.toUTCString();
-        report["flight_num"] = "FJ245";
+        report["flight_num"] = document.getElementById("report-flight").value;
         report["status"] = "In-Progress";
         report["description"] = document.getElementById("report-description").value;
         
@@ -55,21 +54,20 @@ $$('.confirm-title-ok-cancel').on('click', function () {
             //report["Videos"] = videos;
             for (var j = 0; j < videos.length; j++) {
                 fileToUploadPath = videos[j];
-                //alert(fileToUploadPath);
-            //     //myApp.alert(fileToUploadPath);
                 upload("video"); 
              }
         }
         if (audios.length > 0) {
-            //report["Audios"] = audios;
             for (var j = 0; j < audios.length; j++) {
                 fileToUploadPath = audios[j];
                 upload("auto");
             }
         }
-        //setTimeout(submitReport(report), 10000);
-        submitReport(report);
+        
+        setTimeout(submitReport, 2000);
+        
         myApp.alert('Your report has successfully been submitted');
+        
         
         
       },
@@ -98,21 +96,14 @@ var captureSuccessImage = function(mediaFiles) {
     for (i = 0, len = mediaFiles.length; i < len; i += 1) {
         path = mediaFiles[i].name;
         images.push(mediaFiles[i].fullPath);
-        //fileToUploadPath = mediaFiles[i].fullPath;
-        //upload("image");
-        // do something interesting with the file
-    }
-    // Iterates through the images array to display the the images attached 
-    var text = "";
-    for (var j = 0; j < images.length; j++) {
-        text += "<img src=" + images[j] + ">" + "</img>&nbsp;";
         
+        if (element.innerHTML == "Add Image") {
+            element.innerHTML = "<img src=" + mediaFiles[i].fullPath + "></img>&nbsp;";
+        } else {
+            element.innerHTML += "<img src=" + mediaFiles[i].fullPath + "></img>&nbsp;";
+        }
     }
-    if (element.innerHTML === "Add Image") {
-        element.innerHTML = text;
-    } else {
-        element.innerHTML += text;
-    }
+
 };
 
 // capture callback for Videos
@@ -123,19 +114,13 @@ var captureSuccessVideo = function(mediaFiles) {
     for (i = 0, len = mediaFiles.length; i < len; i += 1) {
         path = mediaFiles[i].name;
         videos.push(mediaFiles[i].fullPath);
-        text += mediaFiles[i].name + "<br>";
-        //fileToUploadPath = mediaFiles[i].fullPath;
-        // myApp.alert(fileToUploadPath);
-        //upload("video");
-        // do something interesting with the file
+        
+        if (element.innerHTML == "Add Video") {
+            element.innerHTML = mediaFiles[i].name + "<br>";
+        } else {
+            element.innerHTML += mediaFiles[i].name + "<br>";
+        }
     }
-    // alert(videos);
-    // Iterates through the videos array to display the titles of the videos attached
-    
-    // for (var j = 0; j < videos.length; j++) {
-    //     text += videos[j].name + "<br>";
-    // }
-    element.innerHTML = text;
 
 };
 
@@ -147,17 +132,12 @@ var captureSuccessAudio = function(mediaFiles) {
     for (i = 0, len = mediaFiles.length; i < len; i += 1) {
         path = mediaFiles[i].name;
         audios.push(mediaFiles[i].fullPath);
-        text += mediaFiles[i].name + "<br>";
-        //fileToUploadPath = mediaFiles[i].fullPath;
-        //upload("auto");
-        // do something interesting with the file
+        if (element.innerHTML == "Add Audio") {
+            element.innerHTML = mediaFiles[i].name + "<br>";
+        } else {
+            element.innerHTML += mediaFiles[i].name + "<br>";
+        }
     }
-    // Iterates through the audios array to display the titles of the audios attached
-    
-    // for (var j = 0; j < audios.length; j++) {
-    //     text += audios[j].name + "<br>";
-    // }
-    element.innerHTML = text;
 
 };
 
@@ -338,18 +318,40 @@ function upload(mediaType) {
 
 }
 
-var submitReport = function(report) {
+var submitReport = function() {
     $.ajax( { url: "https://api.mlab.com/api/1/databases/tiplineapplication/collections/reports?apiKey=g68v4wvcTSO-6AudfojTLBdRTUBft52J",
-    data: JSON.stringify( { "title" : report['title'], "location": report['location'], "date-time": report['date_time'], "flight_num": report['flight_num'], "status": report['status'], "description": report['description'], "URLs": report['URLs'] } ),
+    data: JSON.stringify( { "user_id": report['user_id'], "title" : report['title'], "location": report['location'], "date_time": report['date_time'], "flight_num": report['flight_num'], "status": report['status'], "description": report['description'], "URLs": report['URLs'] } ),
     type: "POST",
     contentType: "application/json", 
     success: function(response) {
         console.log(response);
-        //alert("Report Successfully Sent to Database");
-        //window.location.replace("index.html");
-        //alert(JSON.stringify(response));
+        refresh();
+
     },
     error: function(e) {
         //alert('Error: ' + e.message);
     }} );
+}
+
+// Method to reset all the fields on the report submit screen
+function refresh() {
+    document.getElementById("report-title").value = "";
+    document.getElementById("report-flight").value = "";
+    document.getElementById("report-description").value = "";
+
+    images = [];
+    videos = [];
+    audios = [];
+    
+    URLs = [];
+
+    var addImage = document.getElementById('add-image');
+    addImage.innerHTML = "Add Image";
+
+    var addVideo = document.getElementById("add-video");
+    addVideo.innerHTML = "Add Video";
+
+    var addAudio = document.getElementById("add-audio");
+    addAudio.innerHTML = "Add Audio";
+
 }

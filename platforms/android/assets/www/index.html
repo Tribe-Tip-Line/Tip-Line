@@ -39,7 +39,7 @@
         <!-- Pages-->
         <div class="pages">
           <!-- Page, data-page contains page name-->
-          <div data-page="index-5" class="page">
+          <div data-page="home" class="page">
             <!-- Scrollable page content-->
             <div class="page-content">
 
@@ -51,15 +51,55 @@
                 <ul id="number-list">
 
                 </ul>
+                <div class="content-block-title" id="current-location-home">Current Location: Unknown</div>
+                <div class="list-block">
+                  <ul>
+                    <li>
+                      <a href="#" class="item-link list-button call-hotline-home-button">Call Hotline</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button submit-report-home-button">Submit a Report</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button view-numbers-home-button">View Numbers</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button view-reports-home-button">View Reports</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
+      <div id="view-2" class="view tab">
+          <!-- Pages-->
+          <div class="pages">
+            <!-- Page, data-page contains page name-->
+            <div data-page="numbers" class="page">
+              <!-- Scrollable page content-->
+              <div class="page-content">
+                  <div class="card">
+                      <div class="card-content">
+                        <div class="card-content-inner">
+                          <h1>Hotline Numbers</h1>
+                        </div>
+                      </div>
+                  </div>
+                
+  
+                <div class="list-block inset"> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
       <!-- Your fifth view, it is also a .tab and should have "active" class to make it visible by default-->
-      <div id="view-5" class="view tab">
+      <div id="view-3" class="view tab">
         <div class="pages">
           <div class="page" data-page"report">
             <div class="page-content">
@@ -109,7 +149,9 @@
               <div class="card">
                 <div class="card-content">
                   <div class="card-content-inner">
-                    <textarea id="report-description" placeholder="Add a description"></textarea>
+                    <textarea class="report-title" id="report-title" placeholder="Title"></textarea>
+                    <textarea class="report-flight" id="report-flight" placeholder="Flight Number (Optional)"></textarea>
+                    <textarea class="report-description" id="report-description" placeholder="Add a description"></textarea>
                   </div>
                   <div class="card-footer">
                     <input type="button" class="button active confirm-title-ok-cancel" value="Submit"/>
@@ -120,9 +162,29 @@
             </div>
           </div>
         </div>
+      </div>
 
+      <div id="view-4" class="view tab">
+        <!-- Pages-->
+        <div class="pages">
+          <!-- Page, data-page contains page name-->
+          <div data-page="report-list" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+                <div class="card">
+                    <div class="card-content">
+                      <div class="card-content-inner">
+                        <h1>Reports Submitted</h1>
+                      </div>
+                    </div>
+                </div>
+              
 
-
+              <div class="list-block inset"> 
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
 
@@ -133,12 +195,10 @@
       <!-- Bottom Tabbar-->
       <div class="toolbar tabbar tabbar-labels">
         <div class="toolbar-inner">
-          <a href="#view-1" class="tab-link active"><i class="f7-icons">phone</i><span class="tabbar-label">Call</span></a>
-          <!-- <a href="#view-2" class="tab-link"><i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label">Inbox</span></a>
-          <a href="#view-3" class="tab-link"> <i class="icon tabbar-demo-icon-3"><span class="badge bg-red">4</span></i><span class="tabbar-label">Upload</span></a>
-          <a href="#view-4" class="tab-link"> <i class="icon tabbar-demo-icon-4"></i><span class="tabbar-label">Photos</span></a> -->
-
-          <a href="#view-5" class="tab-link"><i class="f7-icons">list</i><span class="tabbar-label">Report</span></a></div>
+          <a href="#view-1" class="tab-link active"><i class="f7-icons">home</i><span class="tabbar-label">Home</span></a>
+          <a href="#view-2" class="tab-link"><i class="f7-icons">phone</i><span class="tabbar-label">Call</span></a>
+          <a href="#view-3" class="tab-link"><i class="f7-icons">camera</i><span class="tabbar-label">Report</span></a>
+          <a href="#view-4" class="tab-link"><i class="f7-icons">list</i><span class="tabbar-label">Report List</span></a></div>
 
       </div>
     </div>

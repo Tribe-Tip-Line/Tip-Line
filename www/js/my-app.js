@@ -7,14 +7,11 @@ var myApp = new Framework7({
 var $$ = Dom7;
 
 // Add views
- var view1 = myApp.addView('#view-1');
-// var view2 = myApp.addView('#view-2', {
-//     // Because we use fixed-through navbar we can enable dynamic navbar
-//     dynamicNavbar: true
-// });
-// var view3 = myApp.addView('#view-3');
-// var view4 = myApp.addView('#view-4');
-var phoneView = myApp.addView('#view-5');
+var view1 = myApp.addView('#view-1');
+var view2 = myApp.addView('#view-2');
+var view3 = myApp.addView('#view-3');
+var view4 = myApp.addView('#view-4');
+
 
 
 // List of tip line numbers based on location
@@ -65,7 +62,12 @@ var data = {
     "National Hotline": "18883737888"
 };
 
-var country;
+var countryCode;
+var countryName;
+
+var phoneNumber;
+
+
 
 // Check if device is ready and calls device ready function
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -98,11 +100,16 @@ function onSuccessfulGeolocation(position) {
     // to that country and if there is, it will add it to the data object. Then it generates html to display the list of numbers
     function success(result) {
 
-        country = result.countryCode;
+        
+        countryCode = result.countryCode;
+        countryName = result.countryName;
         // element.innerHTML = 'Country: ' + country + '<br />';
 
+        var element = document.getElementById('current-location-home');
+        element.innerHTML = 'Current Location: ' + countryName + '<br />';
+
         for (var num in listNumbers) {
-            if (num === country) {
+            if (num === countryCode) {
                 data[result.countryName] = listNumbers[num];
             }
         }
@@ -151,6 +158,26 @@ function startScreen() {
     }
     
 }
+
+// On-click function that handles when submit a report button is pressed
+// Takes user to the submit a report tab view
+$$('.submit-report-home-button').on('click', function () {
+    console.log("submit report pressed");
+    myApp.showTab('#view-3');
+});
+
+// On-click function that handles when view numbers button is pressed
+// Takes user to the call tab view
+$$('.view-numbers-home-button').on('click', function () {
+    myApp.showTab('#view-2');
+    
+});
+
+// On-click function that handles when view reports button is pressed
+// Takes user to the report list tab view
+$$('.view-reports-home-button').on('click', function () {
+    myApp.showTab('#view-4');
+});
 
 
 
