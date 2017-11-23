@@ -1,3 +1,0 @@
-function generateUserID(user) {
-    return 
-}
