@@ -25,13 +25,13 @@ var date = new Date();
 
 
 
+
 // function that handles the submission of a report (when submit is pressed)
 $$('.confirm-title-ok-cancel').on('click', function () {
     myApp.confirm('Are you sure?', 'Submit a Report',
       function () {
-        //Constructs the report object with location, date, description, and its respective media
-        //navigator.geolocation.getCurrentPosition(onSuccessfulGeolocationReport, onErrorGeolocation, {maximumAge: 300000, timeout: 30000, enableHighAccuracy : true });
-        //report["location"] = "Atlanta, GA";
+
+        report["location"] = reportLocation;
         report["user_id"] = window.localStorage.getItem("userid");
         report["title"] = document.getElementById("report-title").value;
         report["date_time"] = date.toUTCString();
@@ -79,10 +79,6 @@ $$('.confirm-title-ok-cancel').on('click', function () {
 });
 
 
-// Gets location of user to add in report object
-function onSuccessfulGeolocationReport(position) {
-    report["location"] = position.coords.latitude + "," + position.coords.longitude;
-}
 
 // two different implementations - getting from library is done with plugin-camera (do phonegap plugin add cordova-plugin-camera)
 // getting from picture or video is from plugin-media-capture (do phonegap plugin add cordova-plugin-media-capture)

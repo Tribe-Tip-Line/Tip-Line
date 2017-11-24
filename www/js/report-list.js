@@ -27,7 +27,7 @@ function getUserID() {
 function getReports() {
     var temp = [];
     var userid = window.localStorage.getItem("userid");
-    console.log(userid);
+    //console.log(userid);
     $.ajax({
         url: 'https://api.mlab.com/api/1/databases/tiplineapplication/collections/reports?q={"user_id":' + '"' + userid + '"'+ '}&apiKey=g68v4wvcTSO-6AudfojTLBdRTUBft52J',
         success: function (data) {
@@ -42,7 +42,7 @@ function getReports() {
         }
     }).done(function (data) {
         reports_pulled = temp;
-        console.log(reports_pulled);
+        //console.log(reports_pulled);
         populateReports();
         //update_reports();
         //console.log(window.localStorage.getItem("reports"));
@@ -70,6 +70,8 @@ function populateReports() {
         var description = reports_pulled[key].description;
         var urls = reports_pulled[key].URLs;
         var status = reports_pulled[key].status;
+        var latitude = reports_pulled[key].location.latitude;
+        var longitude = reports_pulled[key].location.longitude;
 
         var card = document.createElement('div');
         var header = document.createElement('h1');
@@ -84,6 +86,7 @@ function populateReports() {
         var br1 = document.createElement('br');
         var br2 = document.createElement('br');
         var br3 = document.createElement('br');
+        var br4 = document.createElement('br');
         
         var statusTextDiv = document.createElement('b');
         var statusText = document.createTextNode("Status: ");
@@ -94,6 +97,11 @@ function populateReports() {
         var dateText = document.createTextNode("Date: ");
         var dateDataDiv = document.createElement('div');
         var dateData = document.createTextNode(date);
+
+        var locationTextDiv = document.createElement('b');
+        var locationText = document.createTextNode("Location: ");
+        var locationDataDiv = document.createElement("div");
+        var locationData = document.createTextNode(latitude + ", " + longitude);
         
         var flightTextDiv = document.createElement('b');
         var flightText = document.createTextNode("Flight Number: ");
@@ -115,7 +123,7 @@ function populateReports() {
         cardContent.className = "card-content";
         cardContentInner.className = "card-content-inner";
 
-        console.log(urls);
+        //console.log(urls);
 
         for (key in urls) {
             
@@ -148,17 +156,23 @@ function populateReports() {
         cardContentInner.appendChild(dateDataDiv);
         cardContentInner.appendChild(br1);
 
+        locationTextDiv.appendChild(locationText);
+        locationDataDiv.appendChild(locationData); 
+        cardContentInner.appendChild(locationTextDiv);
+        cardContentInner.appendChild(locationDataDiv);
+        cardContentInner.appendChild(br2);
+
         flightTextDiv.appendChild(flightText);
         flightDataDiv.appendChild(flightData); 
         cardContentInner.appendChild(flightTextDiv);
         cardContentInner.appendChild(flightDataDiv);
-        cardContentInner.appendChild(br2);
+        cardContentInner.appendChild(br3);
 
         descripTextDiv.appendChild(descripText);
         descripDataDiv.appendChild(descripData); 
         cardContentInner.appendChild(descripTextDiv);
         cardContentInner.appendChild(descripDataDiv);
-        cardContentInner.appendChild(br3);
+        cardContentInner.appendChild(br4);
 
         urlTextDiv.appendChild(urlText);
         

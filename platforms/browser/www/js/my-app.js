@@ -64,6 +64,8 @@ var phoneNumber = "8663472423"; // Default phone number (United States)
 
 var dbNumbers = [];
 
+var reportLocation = {};
+
 
 
 // Check if device is ready and calls device ready function
@@ -101,6 +103,9 @@ function onSuccessfulGeolocation(position) {
         
         countryCode = result.countryCode;
         countryName = result.countryName;
+
+        reportLocation["latitude"] = position.coords.latitude;
+        reportLocation["longitude"] = position.coords.longitude;
 
         var element = document.getElementById('current-location-home');
         element.innerHTML = 'Current Location: ' + countryName + '<br />';
@@ -146,7 +151,7 @@ function getNumbers() {
             console.log(err);
         }
      }).done(function(data) {
-        console.log(dbNumbers);
+        //console.log(dbNumbers);
         //dbNumbers = temp;
         populateNumList();    
     });
