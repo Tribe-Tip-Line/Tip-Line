@@ -339,6 +339,8 @@ function refresh() {
     document.getElementById("report-flight").value = "";
     document.getElementById("report-description").value = "";
 
+    report = {};
+
     images = [];
     videos = [];
     audios = [];
