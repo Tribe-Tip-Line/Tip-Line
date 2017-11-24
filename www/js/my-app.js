@@ -127,6 +127,7 @@ function startScreen() {
         window.location.replace("login.html");
     }
     getNumbers();
+    getReports();
     
 }
 
@@ -207,6 +208,7 @@ $$('.view-numbers-home-button').on('click', function () {
 // On-click function that handles when view reports button is pressed
 // Takes user to the report list tab view
 $$('.view-reports-home-button').on('click', function () {
+    //getReports();
     myApp.showTab('#view-4');
 });
 

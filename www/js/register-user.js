@@ -25,7 +25,7 @@ var addUser = function(user) {
     success: function(response) {
         var id = response._id.$oid;
         console.log(response);
-        window.localStorage.setItem("id", id);
+        window.localStorage.setItem("userid", id);
         //var value = window.localStorage.getItem("id");
         alert("User Successfully Registered");
         window.location.replace("index.html");

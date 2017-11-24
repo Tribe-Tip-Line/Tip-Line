@@ -32,7 +32,7 @@ $$('.confirm-title-ok-cancel').on('click', function () {
         //Constructs the report object with location, date, description, and its respective media
         //navigator.geolocation.getCurrentPosition(onSuccessfulGeolocationReport, onErrorGeolocation, {maximumAge: 300000, timeout: 30000, enableHighAccuracy : true });
         //report["location"] = "Atlanta, GA";
-        report["user_id"] = window.localStorage.getItem("id");
+        report["user_id"] = window.localStorage.getItem("userid");
         report["title"] = document.getElementById("report-title").value;
         report["date_time"] = date.toUTCString();
         report["flight_num"] = document.getElementById("report-flight").value;
