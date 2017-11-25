@@ -27,6 +27,9 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
     <name>Tip Line</name>
     <description>
         Tip Line Application for Airline Ambassadors.
@@ -42,7 +45,18 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <icon density="ldpi" platform="android" src="www/lib/assets/ic_launcher-web.png" />
+    <icon density="ldpi" src="www/lib/assets/android-app-icon/ldpi.png" />
+    <icon density="mdpi" src="www/lib/assets/android-app-icon/mdpi.png" />
+    <icon density="hdpi" src="www/lib/assets/android-app-icon/hdpi.png" />
+    <icon density="xhdpi" src="www/lib/assets/android-app-icon/xhdpi.png" />
+    <icon density="xxhdpi" src="www/lib/assets/android-app-icon/xxhdpi.png" />
+    <icon density="xxxhdpi" src="www/lib/assets/android-app-icon/xxxhdpi.png" />
+    <splash density="port-hdpi" src="www/lib/assets/android-launch-image/splash-port-hdpi.png" />
+    <splash density="port-ldpi" src="www/lib/assets/android-launch-image/splash-port-ldpi.png" />
+    <splash density="port-mdpi" src="www/lib/assets/android-launch-image/splash-port-mdpi.png" />
+    <splash density="port-xhdpi" src="www/lib/assets/android-launch-image/splash-port-xhdpi.png" />
+    <splash density="port-xxhdpi" src="www/lib/assets/android-launch-image/splash-port-xxhdpi.png" />
+    <splash density="port-xxxhdpi" src="www/lib/assets/android-launch-image/splash-port-xxxhdpi.png" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="StatusBarOverlaysWebView" value="false" />

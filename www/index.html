@@ -39,7 +39,7 @@
         <!-- Pages-->
         <div class="pages">
           <!-- Page, data-page contains page name-->
-          <div data-page="index-5" class="page">
+          <div data-page="home" class="page">
             <!-- Scrollable page content-->
             <div class="page-content">
 
@@ -47,19 +47,73 @@
                 <div style="background-image:url(lib/assets/aa_logo.png)" valign="bottom" class="card-header color-white no-border"></div>
               </div>
 
-              <div class="list-block inset">
-                <ul id="number-list">
+              
+                <!-- <ul id="number-list">
 
-                </ul>
-              </div>
+                </ul> -->
+                <div class="content-block-title" id="current-location-home">Current Location: Undefined</div>
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-content-inner">
+                      <a href="#" class="button button-big button-fill call-hotline-home-button">Call Hotline </a><br>
+                      <a href="#" class="button button-big button-fill submit-report-home-button">Submit A Report </a><br>
+                      <a href="#" class="button button-big button-fill view-numbers-home-button">View Numbers </a><br>
+                      <a href="#" class="button button-big button-fill view-reports-home-button">View Reports </a><br>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- <div class="list-block">
+                  <ul>
+                    <li>
+                      <a href="#" class="item-link list-button call-hotline-home-button ">Call Hotline</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button submit-report-home-button">Submit a Report</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button view-numbers-home-button">View Numbers</a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link list-button view-reports-home-button">View Reports</a>
+                    </li>
+                  </ul>
+                </div> -->
+              
             </div>
           </div>
         </div>
       </div>
 
+      <div id="view-2" class="view tab">
+          <!-- Pages-->
+          <div class="pages">
+            <!-- Page, data-page contains page name-->
+            <div data-page="numbers" class="page">
+              <!-- Scrollable page content-->
+              <div class="page-content">
+                  <div class="card">
+                      <div class="card-content">
+                        <div class="card-content-inner">
+                          <h1>Hotline Numbers</h1>
+                        </div>
+                      </div>
+                  </div>
+                
+                <div class="content-block-title" id="current-location-numbers">Current Location: Undefined</div>
+                <div class="list-block inset"> 
+                  <ul id="number-list" class="number-list">
+                        
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
       <!-- Your fifth view, it is also a .tab and should have "active" class to make it visible by default-->
-      <div id="view-5" class="view tab">
+      <div id="view-3" class="view tab">
         <div class="pages">
           <div class="page" data-page"report">
             <div class="page-content">
@@ -77,7 +131,7 @@
                       <li class="swipeout">
                         <div class="swipeout-content item-content">
                           <div class="item-media"><i class="icon f7-icons">photos</i></div>
-                          <div class="item-inner"><i id="add-image">Add Image</i><i class="icon f7-icons add image-1">add_round</i></div>
+                          <div class="item-inner"><a class="add-text" id="add-image">Add Image</a><a class="icon f7-icons add image-1">add_round</a></div>
                         </div>
                         <div class="swipeout-actions-right">
                           <a href="#" class="action1">Remove</a>
@@ -86,7 +140,7 @@
                       <li class="swipeout">
                         <div class="swipeout-content item-content">
                           <div class="item-media"><i class="icon f7-icons">film</i></div>
-                          <div class="item-inner"><i id="add-video">Add Video</i><i class="icon f7-icons add video-1">add_round</i></div>
+                          <div class="item-inner"><a class="add-text" id="add-video">Add Video</a><a class="icon f7-icons add video-1">add_round</a></div>
                         </div>
                         <div class="swipeout-actions-right">
                           <a href="#" class="action1">Remove</a>
@@ -95,7 +149,7 @@
                       <li class="swipeout">
                         <div class="swipeout-content item-content">
                           <div class="item-media"><i class="icon f7-icons">volume</i></div>
-                          <div class="item-inner"><i id="add-audio">Add Audio</i><i class="icon f7-icons add audio-1">add_round</i></div>
+                          <div class="item-inner"><a class="add-text" id="add-audio">Add Audio</a><a class="icon f7-icons add audio-1">add_round</a></div>
                         </div>
                         <div class="swipeout-actions-right">
                           <a href="#" class="action1">Remove</a>
@@ -106,13 +160,47 @@
                 </div>
               </div>
 
-              <div class="card">
+              <div class="card report-content">
                 <div class="card-content">
                   <div class="card-content-inner">
-                    <textarea id="report-description" placeholder="Add a description"></textarea>
+                    <!-- <textarea class="report-title" id="report-title" placeholder="Title"></textarea>
+                    <textarea class="report-flight" id="report-flight" placeholder="Flight Number (Optional)"></textarea>
+                    <textarea class="report-description" id="report-description" placeholder="Add a description"></textarea> -->
+                    <div class="list-block report-list-block">
+                      <ul>
+                        <li>
+                          <div class="item-content">
+                            <div class="item-inner">
+                            
+                              <div class="item-input">
+                                  <input type="text" class="report-title" id="report-title" placeholder="Title">
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content">
+                            <div class="item-inner">
+                              <div class="item-input">
+                                  <input type="text" class="report-flight" id="report-flight" placeholder="Flight Number (Optional)">
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content">
+                            <div class="item-inner">
+                              <div class="item-input">
+                                <textarea class="report-description" id="report-description" placeholder="Add a Description"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                   <div class="card-footer">
-                    <input type="button" class="button active confirm-title-ok-cancel" value="Submit"/>
+                    <input type="button" class="button button-big button-fill active confirm-title-ok-cancel" value="Submit"/>
                   </div>
                 </div>
               </div>
@@ -120,9 +208,33 @@
             </div>
           </div>
         </div>
+      </div>
 
-
-
+      <div id="view-4" class="view tab">
+        <!-- Pages-->
+        <div class="pages">
+          <!-- Page, data-page contains page name-->
+          <div data-page="report-list" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content pull-to-refresh-content" data-ptr-distance="55">
+              <div class="pull-to-refresh-layer">
+                  <div class="preloader"></div>
+                  <div class="pull-to-refresh-arrow"></div>
+              </div>
+              <div class="card">
+                  <div class="card-content">
+                    <div class="card-content-inner">
+                      <h1>Reports Submitted</h1>
+                    </div>
+                  </div>
+              </div>
+              <div class="list-block" id="report-list-block"> 
+                <div id="report-list">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
 
@@ -133,22 +245,24 @@
       <!-- Bottom Tabbar-->
       <div class="toolbar tabbar tabbar-labels">
         <div class="toolbar-inner">
-          <a href="#view-1" class="tab-link active"><i class="f7-icons">phone</i><span class="tabbar-label">Call</span></a>
-          <!-- <a href="#view-2" class="tab-link"><i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label">Inbox</span></a>
-          <a href="#view-3" class="tab-link"> <i class="icon tabbar-demo-icon-3"><span class="badge bg-red">4</span></i><span class="tabbar-label">Upload</span></a>
-          <a href="#view-4" class="tab-link"> <i class="icon tabbar-demo-icon-4"></i><span class="tabbar-label">Photos</span></a> -->
-
-          <a href="#view-5" class="tab-link"><i class="f7-icons">list</i><span class="tabbar-label">Report</span></a></div>
+          <a href="#view-1" class="tab-link active"><i class="f7-icons">home</i><span class="tabbar-label">Home</span></a>
+          <a href="#view-2" class="tab-link"><i class="f7-icons">phone</i><span class="tabbar-label">Call</span></a>
+          <a href="#view-3" class="tab-link"><i class="f7-icons">camera</i><span class="tabbar-label">Report</span></a>
+          <a href="#view-4" class="tab-link"><i class="f7-icons">list</i><span class="tabbar-label">Report List</span></a></div>
 
       </div>
     </div>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <!-- Path to your app js-->
+    <script src="http://code.jquery.com/jquery-latest.min.js"
+    type="text/javascript"></script>
+    <script src="cordova.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
     <script type="text/javascript" src="js/submit-report.js"></script>
-    <script type="text/javascript" src="js/phone-numbers.js"></script>
-    <script src="cordova.js"></script>
+    <script type="text/javascript" src="js/report-list.js"></script>
+    
+    
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGtGQXvHVbeWGe2tGhY0zXZgaoohtG2zk&callback=initMap"
   type="text/javascript"></script>
   </body>

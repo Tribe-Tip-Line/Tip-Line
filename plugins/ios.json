@@ -1,52 +1,55 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "call-number": {
+      "PACKAGE_NAME": "com.aa.tipline"
     },
-    "config_munge": {
-        "files": {}
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "com.aa.tipline"
     },
-    "installed_plugins": {
-        "call-number": {
-            "PACKAGE_NAME": "com.aa.tipline"
-        },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.aa.tipline"
-        },
-        "cordova-plugin-geolocation": {
-            "GEOLOCATION_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "com.aa.tipline"
-        },
-        "cordova-plugin-media-capture": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "com.aa.tipline"
-        },
-        "cordova-plugin-nativegeocoder": {
-            "PACKAGE_NAME": "com.aa.tipline"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.aa.tipline"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.aa.tipline"
-        }
+    "cordova-plugin-geolocation": {
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "com.aa.tipline"
     },
-    "dependent_plugins": {
-        "cordova-plugin-add-swift-support": {
-            "PACKAGE_NAME": "com.aa.tipline"
-        },
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.aa.tipline"
-        },
-        "cordova-plugin-camera": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "com.aa.tipline"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.aa.tipline"
-        }
+    "cordova-plugin-media-capture": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "MICROPHONE_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "com.aa.tipline"
+    },
+    "cordova-plugin-nativegeocoder": {
+      "PACKAGE_NAME": "com.aa.tipline"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.aa.tipline"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.aa.tipline"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.aa.tipline"
     }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "com.aa.tipline"
+    },
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.aa.tipline"
+    },
+    "cordova-plugin-camera": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "com.aa.tipline"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.aa.tipline"
+    }
+  }
 }

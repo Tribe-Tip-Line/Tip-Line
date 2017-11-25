@@ -1,8 +1,17 @@
 
+// your Cloudinary keys
+var CLOUD_NAME = "hq9cel0of",
+    API_KEY = "381266826886153",
+    API_SECRET = "qbKm9CxCiTVtCMFCyjTV8n_DQ6s";
+
+
+
+// e.g. file:///path/to/file/image.jpg
+var fileToUploadPath = "";
+
+
 // Report object to be sent to authorities/database
-var report = {
-    "User": "test user"
-};
+var report = {};
 
 
 // Array objects for each media content
@@ -10,27 +19,56 @@ var images = [];
 var videos = [];
 var audios = [];
 
+var URLs = [];
+
 var date = new Date();
+
+
 
 
 // function that handles the submission of a report (when submit is pressed)
 $$('.confirm-title-ok-cancel').on('click', function () {
     myApp.confirm('Are you sure?', 'Submit a Report',
       function () {
-        //Constructs the report object with location, date, description, and its respective media
-        navigator.geolocation.getCurrentPosition(onSuccessfulGeolocationReport, onErrorGeolocation, {maximumAge: 300000, timeout: 30000, enableHighAccuracy : true });
-        report["Date"] = date.getDate();
-        report["Description"] = document.getElementById("report-description").value;
+
+        report["location"] = reportLocation;
+        report["user_id"] = window.localStorage.getItem("userid");
+        report["title"] = document.getElementById("report-title").value;
+        report["date_time"] = date.toUTCString();
+        report["flight_num"] = document.getElementById("report-flight").value;
+        report["status"] = "In-Progress";
+        report["description"] = document.getElementById("report-description").value;
+        
+        
         if (images.length > 0) {
-            report["Images"] = images;
+            
+            //report["Images"] = images;
+            for (var j = 0; j < images.length; j++) {
+                fileToUploadPath = images[j];
+                upload("image"); 
+            }
+            
         }
+        
         if (videos.length > 0) {
-            report["Videos"] = videos;
+            //report["Videos"] = videos;
+            for (var j = 0; j < videos.length; j++) {
+                fileToUploadPath = videos[j];
+                upload("video"); 
+             }
         }
         if (audios.length > 0) {
-            report["Audios"] = audios;
+            for (var j = 0; j < audios.length; j++) {
+                fileToUploadPath = audios[j];
+                upload("auto");
+            }
         }
-        myApp.alert('Your report has successfully been submitted');
+        
+        setTimeout(submitReport, 4000);
+        
+        
+        
+        
         
       },
       function () {
@@ -41,10 +79,6 @@ $$('.confirm-title-ok-cancel').on('click', function () {
 });
 
 
-// Gets location of user to add in report object
-function onSuccessfulGeolocationReport(position) {
-    report["Location"] = position.coords.latitude + "," + position.coords.longitude;
-}
 
 // two different implementations - getting from library is done with plugin-camera (do phonegap plugin add cordova-plugin-camera)
 // getting from picture or video is from plugin-media-capture (do phonegap plugin add cordova-plugin-media-capture)
@@ -57,36 +91,32 @@ var captureSuccessImage = function(mediaFiles) {
     var element = document.getElementById("add-image");
     for (i = 0, len = mediaFiles.length; i < len; i += 1) {
         path = mediaFiles[i].name;
-        images.push(mediaFiles[i]);
-        // do something interesting with the file
+        images.push(mediaFiles[i].fullPath);
+        
+        if (element.innerHTML == "Add Image") {
+            element.innerHTML = "<img src=" + mediaFiles[i].fullPath + "></img>&nbsp;";
+        } else {
+            element.innerHTML += "<img src=" + mediaFiles[i].fullPath + "></img>&nbsp;";
+        }
     }
-    // Iterates through the images array to display the the images attached 
-    var text = "";
-    for (var j = 0; j < images.length; j++) {
-        text += "<img src=" + images[j].fullPath + ">" + "</img>&nbsp;";
-    }
-    if (element.innerHTML === "Add Image") {
-        element.innerHTML = text;
-    } else {
-        element.innerHTML += text;
-    }
+
 };
 
 // capture callback for Videos
 var captureSuccessVideo = function(mediaFiles) {
     var i, path, len;
+    var text = "";
     var element = document.getElementById("add-video");
     for (i = 0, len = mediaFiles.length; i < len; i += 1) {
         path = mediaFiles[i].name;
-        videos.push(mediaFiles[i]);
-        // do something interesting with the file
+        videos.push(mediaFiles[i].fullPath);
+        
+        if (element.innerHTML == "Add Video") {
+            element.innerHTML = mediaFiles[i].name + "<br>";
+        } else {
+            element.innerHTML += mediaFiles[i].name + "<br>";
+        }
     }
-    // Iterates through the videos array to display the titles of the videos attached
-    var text = "";
-    for (var j = 0; j < videos.length; j++) {
-        text += videos[j].name + "<br>";
-    }
-    element.innerHTML = text;
 
 };
 
@@ -94,17 +124,16 @@ var captureSuccessVideo = function(mediaFiles) {
 var captureSuccessAudio = function(mediaFiles) {
     var i, path, len;
     var element = document.getElementById("add-audio");
+    var text = "";
     for (i = 0, len = mediaFiles.length; i < len; i += 1) {
         path = mediaFiles[i].name;
-        audios.push(mediaFiles[i]);
-        // do something interesting with the file
+        audios.push(mediaFiles[i].fullPath);
+        if (element.innerHTML == "Add Audio") {
+            element.innerHTML = mediaFiles[i].name + "<br>";
+        } else {
+            element.innerHTML += mediaFiles[i].name + "<br>";
+        }
     }
-    // Iterates through the audios array to display the titles of the audios attached
-    var text = "";
-    for (var j = 0; j < audios.length; j++) {
-        text += audios[j].name + "<br>";
-    }
-    element.innerHTML = text;
 
 };
 
@@ -113,10 +142,7 @@ var captureError = function(error) {
     return null;
 };
 
-
 // CAMERA
-
-
 function setOptions(srcType, isPicture) {
     var mType;
     if (isPicture) {
@@ -171,6 +197,8 @@ $$('.image-1').on('click', function () {
 function onSuccessImage(imageURI) {
     var image = document.getElementById('add-image'); // this element does not exist yet
     images.push(imageURI);
+    //fileToUploadPath = imageURI;
+    //myApp.alert(fileToUploadPath);
     if (image.innerHTML == "Add Image") {
         image.innerHTML = "<img src=" + imageURI + "></img>&nbsp;";
     } else {
@@ -195,13 +223,6 @@ $$('.video-1').on('click', function () {
                 navigator.device.capture.captureVideo(captureSuccessVideo, captureError, {limit:2});
             }
         },
-        // {
-        //     text: 'Choose from Library',
-        //     onClick: function () {
-        //         options = setOptions(Camera.PictureSourceType.PHOTOLIBRARY, 0);
-        //         navigator.camera.getPicture(onSuccess, cameraError, options);
-        //     }
-        // },
         {
             text: 'Cancel',
             color: 'red'
@@ -226,3 +247,110 @@ $$('.audio-1').on('click', function () {
     ];
     myApp.actions(buttons);
 });
+
+function upload(mediaType) {
+    var uri = encodeURI('https://api.cloudinary.com/v1_1/'+ CLOUD_NAME +'/' + mediaType + '/upload');
+    var options = new FileUploadOptions();
+    options.fileKey="file";
+    options.fileName=fileToUploadPath.substr(fileToUploadPath.lastIndexOf('/')+1);
+    var timestamp = Math.floor(Date.now() / 1000);
+
+    // add in the params required for Cloudinary
+    // options.params = {
+    // api_key: API_KEY,
+    // timestamp: timestamp,
+    // signature: new Hashes.SHA1().hex('timestamp='+timestamp+API_SECRET)
+    // };
+    options.params = {
+        upload_preset:'ew8aivab'
+    }
+
+    var ft = new FileTransfer();
+    
+    ft.upload(fileToUploadPath, uri, 
+        function(result){
+    
+            // success!
+            //myApp.alert(fileToUploadPath);
+            response = JSON.parse(result.response);  
+            
+    
+            // console.log(response);
+            // console.log('===== response =====');
+            // console.log(response);
+            URLs.push(response["url"]);
+            report["URLs"] = URLs;
+            
+            
+            /*
+                response is the JSON returned from Cloudinary on successful upload:
+    
+                {
+                    bytes = 4299687;
+                    "created_at" = "2015-03-31T05:24:52Z";
+                    etag = 38825bcbea005ba3c5da79591625f098;
+                    format = jpg;
+                    height = 2448;
+                    "public_id" = e9fz4zcrvf5n4clmlh1s;
+                    "resource_type" = image;
+                    "secure_url" = "https://.../e9fz4zcrvf5n4clmlh1s.jpg";
+                    signature = d87e52bd9facd534cf2c6bdc3a6707a97036232c;
+                    tags =     (
+                    );
+                    type = upload;
+                    url = "http://.../e9fz4zcrvf5n4clmlh1s.jpg";
+                    version = 1427779492;
+                    width = 3264;
+                }
+            */
+        }, 
+        function(error) {
+            // fail!
+            myApp.alert("ERROR: Failed to upload file to Cloudinary");
+    
+        }, 
+        options
+    );
+
+}
+
+var submitReport = function() {
+    $.ajax( { url: "https://api.mlab.com/api/1/databases/tiplineapplication/collections/reports?apiKey=g68v4wvcTSO-6AudfojTLBdRTUBft52J",
+    data: JSON.stringify( { "user_id": report['user_id'], "title" : report['title'], "location": report['location'], "date_time": report['date_time'], "flight_num": report['flight_num'], "status": report['status'], "description": report['description'], "URLs": report['URLs'] } ),
+    type: "POST",
+    contentType: "application/json", 
+    success: function(response) {
+        //console.log(response);
+        myApp.alert('Your report has successfully been submitted');
+        refresh();
+
+    },
+    error: function(e) {
+        //alert('Error: ' + e.message);
+    }} );
+}
+
+// Method to reset all the fields on the report submit screen
+function refresh() {
+    document.getElementById("report-title").value = "";
+    document.getElementById("report-flight").value = "";
+    document.getElementById("report-description").value = "";
+
+    report = {};
+
+    images = [];
+    videos = [];
+    audios = [];
+    
+    URLs = [];
+
+    var addImage = document.getElementById('add-image');
+    addImage.innerHTML = "Add Image";
+
+    var addVideo = document.getElementById("add-video");
+    addVideo.innerHTML = "Add Video";
+
+    var addAudio = document.getElementById("add-audio");
+    addAudio.innerHTML = "Add Audio";
+
+}

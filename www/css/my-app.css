@@ -40,16 +40,41 @@ i.tabbar-demo-icon-4 {
 }
 
 .add {
-  color: #007aff;
+  color: #17ACBC;
 }
 
 .item-inner {
-  color: #007aff;
+  color: #17ACBC;
 }
 
-textarea {
+.url {
+  color: #17ACBC;
+}
+
+.add-text {
+  font-style: italic;
+}
+
+
+
+
+
+
+.report-description {
   width: 100%;
   height: 50vh;
+}
+
+
+.report-title {
+  width: 100%;
+  height: 2vh;
+  resize: none;
+}
+
+.report-flight {
+  width: 100%;
+  height: 2vh;
   resize: none;
 }
 
@@ -58,5 +83,8 @@ img {
   width: 40px;
 }
 
+div {
+  word-wrap: break-word;
+}
 
 
