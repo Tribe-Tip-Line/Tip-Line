@@ -177,6 +177,8 @@ function populateNumList() {
         var a = document.createElement('a');
         var text = document.createTextNode(country + ": " + number);
 
+        text.className="number-text";
+
         a.className = "item-link list-button";
         a.setAttribute("id", number);
         a.onclick = function() {

@@ -134,6 +134,7 @@ function populateReports() {
             a.onclick = function() {
                 document.location = urls[key];
             };
+            a.className = "url";
             a.appendChild(urlData);
             urlDataDiv.appendChild(a);
             urlDataDiv.appendChild(br);

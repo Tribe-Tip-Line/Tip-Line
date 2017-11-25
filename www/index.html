@@ -47,15 +47,26 @@
                 <div style="background-image:url(lib/assets/aa_logo.png)" valign="bottom" class="card-header color-white no-border"></div>
               </div>
 
-              <div class="list-block inset">
+              
                 <!-- <ul id="number-list">
 
                 </ul> -->
                 <div class="content-block-title" id="current-location-home">Current Location: Undefined</div>
-                <div class="list-block">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="card-content-inner">
+                      <a href="#" class="button button-big button-fill call-hotline-home-button">Call Hotline </a><br>
+                      <a href="#" class="button button-big button-fill submit-report-home-button">Submit A Report </a><br>
+                      <a href="#" class="button button-big button-fill view-numbers-home-button">View Numbers </a><br>
+                      <a href="#" class="button button-big button-fill view-reports-home-button">View Reports </a><br>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- <div class="list-block">
                   <ul>
                     <li>
-                      <a href="#" class="item-link list-button call-hotline-home-button">Call Hotline</a>
+                      <a href="#" class="item-link list-button call-hotline-home-button ">Call Hotline</a>
                     </li>
                     <li>
                       <a href="#" class="item-link list-button submit-report-home-button">Submit a Report</a>
@@ -67,8 +78,8 @@
                       <a href="#" class="item-link list-button view-reports-home-button">View Reports</a>
                     </li>
                   </ul>
-                </div>
-              </div>
+                </div> -->
+              
             </div>
           </div>
         </div>
@@ -91,7 +102,7 @@
                 
                 <div class="content-block-title" id="current-location-numbers">Current Location: Undefined</div>
                 <div class="list-block inset"> 
-                  <ul id="number-list">
+                  <ul id="number-list" class="number-list">
                         
                   </ul>
                 </div>
@@ -120,7 +131,7 @@
                       <li class="swipeout">
                         <div class="swipeout-content item-content">
                           <div class="item-media"><i class="icon f7-icons">photos</i></div>
-                          <div class="item-inner"><i id="add-image">Add Image</i><i class="icon f7-icons add image-1">add_round</i></div>
+                          <div class="item-inner"><a class="add-text" id="add-image">Add Image</a><a class="icon f7-icons add image-1">add_round</a></div>
                         </div>
                         <div class="swipeout-actions-right">
                           <a href="#" class="action1">Remove</a>
@@ -129,7 +140,7 @@
                       <li class="swipeout">
                         <div class="swipeout-content item-content">
                           <div class="item-media"><i class="icon f7-icons">film</i></div>
-                          <div class="item-inner"><i id="add-video">Add Video</i><i class="icon f7-icons add video-1">add_round</i></div>
+                          <div class="item-inner"><a class="add-text" id="add-video">Add Video</a><a class="icon f7-icons add video-1">add_round</a></div>
                         </div>
                         <div class="swipeout-actions-right">
                           <a href="#" class="action1">Remove</a>
@@ -138,7 +149,7 @@
                       <li class="swipeout">
                         <div class="swipeout-content item-content">
                           <div class="item-media"><i class="icon f7-icons">volume</i></div>
-                          <div class="item-inner"><i id="add-audio">Add Audio</i><i class="icon f7-icons add audio-1">add_round</i></div>
+                          <div class="item-inner"><a class="add-text" id="add-audio">Add Audio</a><a class="icon f7-icons add audio-1">add_round</a></div>
                         </div>
                         <div class="swipeout-actions-right">
                           <a href="#" class="action1">Remove</a>
@@ -149,15 +160,47 @@
                 </div>
               </div>
 
-              <div class="card">
+              <div class="card report-content">
                 <div class="card-content">
                   <div class="card-content-inner">
-                    <textarea class="report-title" id="report-title" placeholder="Title"></textarea>
+                    <!-- <textarea class="report-title" id="report-title" placeholder="Title"></textarea>
                     <textarea class="report-flight" id="report-flight" placeholder="Flight Number (Optional)"></textarea>
-                    <textarea class="report-description" id="report-description" placeholder="Add a description"></textarea>
+                    <textarea class="report-description" id="report-description" placeholder="Add a description"></textarea> -->
+                    <div class="list-block report-list-block">
+                      <ul>
+                        <li>
+                          <div class="item-content">
+                            <div class="item-inner">
+                            
+                              <div class="item-input">
+                                  <input type="text" class="report-title" id="report-title" placeholder="Title">
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content">
+                            <div class="item-inner">
+                              <div class="item-input">
+                                  <input type="text" class="report-flight" id="report-flight" placeholder="Flight Number (Optional)">
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content">
+                            <div class="item-inner">
+                              <div class="item-input">
+                                <textarea class="report-description" id="report-description" placeholder="Add a Description"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                   <div class="card-footer">
-                    <input type="button" class="button active confirm-title-ok-cancel" value="Submit"/>
+                    <input type="button" class="button button-big button-fill active confirm-title-ok-cancel" value="Submit"/>
                   </div>
                 </div>
               </div>

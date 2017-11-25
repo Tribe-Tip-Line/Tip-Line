@@ -64,9 +64,9 @@ $$('.confirm-title-ok-cancel').on('click', function () {
             }
         }
         
-        setTimeout(submitReport, 2000);
+        setTimeout(submitReport, 4000);
         
-        myApp.alert('Your report has successfully been submitted');
+        
         
         
         
@@ -275,9 +275,9 @@ function upload(mediaType) {
             response = JSON.parse(result.response);  
             
     
-            console.log(response);
-            console.log('===== response =====');
-            console.log(response);
+            // console.log(response);
+            // console.log('===== response =====');
+            // console.log(response);
             URLs.push(response["url"]);
             report["URLs"] = URLs;
             
@@ -320,7 +320,8 @@ var submitReport = function() {
     type: "POST",
     contentType: "application/json", 
     success: function(response) {
-        console.log(response);
+        //console.log(response);
+        myApp.alert('Your report has successfully been submitted');
         refresh();
 
     },

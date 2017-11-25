@@ -40,24 +40,31 @@ i.tabbar-demo-icon-4 {
 }
 
 .add {
-  color: #007aff;
+  color: #17ACBC;
 }
 
 .item-inner {
-  color: #007aff;
+  color: #17ACBC;
 }
 
-/* textarea {
-  width: 100%;
-  height: 50vh;
-  resize: none;
-} */
+.url {
+  color: #17ACBC;
+}
+
+.add-text {
+  font-style: italic;
+}
+
+
+
+
+
 
 .report-description {
   width: 100%;
   height: 50vh;
-  resize: none;
 }
+
 
 .report-title {
   width: 100%;
