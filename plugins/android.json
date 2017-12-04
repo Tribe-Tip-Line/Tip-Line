@@ -10,9 +10,6 @@
     "call-number": {
       "PACKAGE_NAME": "com.aa.tipline"
     },
-    "cordova-plugin-console": {
-      "PACKAGE_NAME": "com.aa.tipline"
-    },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.aa.tipline"
     },

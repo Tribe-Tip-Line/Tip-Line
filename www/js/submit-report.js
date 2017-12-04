@@ -175,7 +175,10 @@ $$('.image-1').on('click', function () {
         {
             text: 'Take Picture',
             onClick: function () {
-                navigator.device.capture.captureImage(captureSuccessImage, captureError, {limit:2});
+                //navigator.device.capture.captureImage(captureSuccessImage, captureError, {limit:2});
+                console.log("New Camera Test");
+                options = setOptions(Camera.PictureSourceType.CAMERA, 1);
+                navigator.camera.getPicture(onSuccessImage, cameraError, options);
             }
         },
         {
@@ -195,6 +198,7 @@ $$('.image-1').on('click', function () {
 
 // function callback for when picture is chosen from library
 function onSuccessImage(imageURI) {
+    console.log("its working");
     var image = document.getElementById('add-image'); // this element does not exist yet
     images.push(imageURI);
     //fileToUploadPath = imageURI;

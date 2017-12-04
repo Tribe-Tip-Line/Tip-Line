@@ -130,6 +130,7 @@ function populateReports() {
             var a = document.createElement('a');
             var urlData = document.createTextNode(urls[key]);
             var br = document.createElement('br');
+            var br1 = document.createElement('br');
             
             a.onclick = function() {
                 document.location = urls[key];
@@ -138,6 +139,7 @@ function populateReports() {
             a.appendChild(urlData);
             urlDataDiv.appendChild(a);
             urlDataDiv.appendChild(br);
+            urlDataDiv.appendChild(br1);
            ;
             
         }

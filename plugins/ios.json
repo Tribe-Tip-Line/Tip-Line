@@ -8,48 +8,45 @@
   },
   "installed_plugins": {
     "call-number": {
-      "PACKAGE_NAME": "com.aa.tipline"
+      "PACKAGE_NAME": "com.airlineamb.tiplineaai"
     },
-    "cordova-plugin-console": {
-      "PACKAGE_NAME": "com.aa.tipline"
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.airlineamb.tiplineaai"
     },
     "cordova-plugin-geolocation": {
       "GEOLOCATION_USAGE_DESCRIPTION": " ",
-      "PACKAGE_NAME": "com.aa.tipline"
+      "PACKAGE_NAME": "com.airlineamb.tiplineaai"
     },
     "cordova-plugin-media-capture": {
       "CAMERA_USAGE_DESCRIPTION": " ",
       "MICROPHONE_USAGE_DESCRIPTION": " ",
       "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-      "PACKAGE_NAME": "com.aa.tipline"
+      "PACKAGE_NAME": "com.airlineamb.tiplineaai"
     },
     "cordova-plugin-nativegeocoder": {
-      "PACKAGE_NAME": "com.aa.tipline"
+      "PACKAGE_NAME": "com.airlineamb.tiplineaai"
     },
     "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "com.aa.tipline"
+      "PACKAGE_NAME": "com.airlineamb.tiplineaai"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.aa.tipline"
-    },
-    "cordova-plugin-file-transfer": {
-      "PACKAGE_NAME": "com.aa.tipline"
+      "PACKAGE_NAME": "com.airlineamb.tiplineaai"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-add-swift-support": {
-      "PACKAGE_NAME": "com.aa.tipline"
+      "PACKAGE_NAME": "com.airlineamb.tiplineaai"
     },
     "cordova-plugin-compat": {
-      "PACKAGE_NAME": "com.aa.tipline"
+      "PACKAGE_NAME": "com.airlineamb.tiplineaai"
     },
     "cordova-plugin-camera": {
       "CAMERA_USAGE_DESCRIPTION": " ",
       "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-      "PACKAGE_NAME": "com.aa.tipline"
+      "PACKAGE_NAME": "com.airlineamb.tiplineaai"
     },
     "cordova-plugin-file": {
-      "PACKAGE_NAME": "com.aa.tipline"
+      "PACKAGE_NAME": "com.airlineamb.tiplineaai"
     }
   }
 }

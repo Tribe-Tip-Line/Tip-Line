@@ -64,7 +64,10 @@ var phoneNumber = "8663472423"; // Default phone number (United States)
 
 var dbNumbers = [];
 
-var reportLocation = {};
+var reportLocation = {
+    "latitude": "undefined",
+    "longitude": "undefined"
+};
 
 
 
@@ -120,8 +123,8 @@ function onSuccessfulGeolocation(position) {
 
 // onError Callback receives a PositionError object
 function onErrorGeolocation(error) {
-    alert('code: '    + error.code    + '\n' +
-          'message: ' + error.message + '\n');
+    // alert('code: '    + error.code    + '\n' +
+    //       'message: ' + error.message + '\n');
 }
 
 

@@ -329,7 +329,6 @@ module.exports.metadata =
     "cordova-plugin-add-swift-support": "1.7.0",
     "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-camera": "2.4.1",
-    "cordova-plugin-console": "1.0.7",
     "cordova-plugin-file": "4.0.0",
     "cordova-plugin-geolocation": "2.4.3",
     "cordova-plugin-media-capture": "1.4.3",

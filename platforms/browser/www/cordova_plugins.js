@@ -708,7 +708,6 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-whitelist": "1.2.2",
-    "cordova-plugin-console": "1.0.7",
     "cordova-plugin-statusbar": "1.0.1",
     "call-number": "0.0.2",
     "cordova-plugin-geolocation": "2.4.3",
