@@ -1,7 +1,13 @@
 # Tip-Line
 A cross-platform mobile application developed with Adobe Phonegap for [Airline Ambassadors International](http://airlineamb.org)
 
-## Release Notes
+## Release Notes (v1.0.3 // 12-1-2017)
+
+**Features:** Intial application rollout to the Google play store and the Apple App store. Supports registration key authentication, user registration, geolocation service, hotline calling capabilities, report submission, and user report list. 
+
+**Fixed:** Configuration settings to meet the requirements for Apple app store approval.
+
+**Bugs/Defects:** Add Video tag on report submission page doesn't render properly and doesn't show all the time. Adding an image causes a visual bug for the image thumbnail. In the Report List tab, if a report contains multiple media links, all the links direct to the most recent media link instead of their respective media link. 
 
 ## Prerequisites
 ### [Install NodeJS](http://nodejs.org/)
@@ -26,6 +32,14 @@ npm install -g cordova
 npm install -g phonegap
 ```
 
+### Plugins
+  * [Camera](https://www.npmjs.com/package/cordova-plugin-camera) plugin
+  * [File](https://www.npmjs.com/package/cordova-plugin-file) plugin
+  * [File Transfer](https://www.npmjs.com/package/cordova-plugin-file-transfer) plugin
+  * [Geolocation](https://www.npmjs.com/package/cordova-plugin-geolocation) plugin
+  * [Capture](https://www.npmjs.com/package/cordova-plugin-media-capture) plugin
+  * [NativeGeocoder](https://www.npmjs.com/package/cordova-plugin-nativegeocoder) plugin
+
 ## Setup
 Clone the repo and change into the directory:
 ```
@@ -49,11 +63,14 @@ To build the application for browser run:
 phonegap build browser
 ```
 ### Test the application
-To test the application in Xcode, navigate to `/platforms/ios/TipLine.xcodeproj`
+To test the application in Xcode, navigate to `/platforms/ios/TipLine.xcodeproj` and open it
 
 To test the application in Android Studio, select the `Open an existing Android Studio project` and select the android platform directory `/platforms/android`
 
-To test the application in your Browser run:
+To test the application in your local browser run:
 ```
 phonegap serve
 ```
+and navigate to `http://localhost:3000` in your browser
+
+## Troubleshooting
