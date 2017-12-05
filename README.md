@@ -74,3 +74,30 @@ phonegap serve
 and navigate to `http://localhost:3000` in your browser
 
 ## Troubleshooting
+If you are having trouble building the application, try removing the platform:
+```
+cordova platform remove <platform>
+```
+and adding the platform back:
+```
+cordova platform add <platform>
+```
+
+If you are having trouble with plugins, try removing the plugin:
+```
+cordova plugin remove <plugin>
+```
+
+and adding the plugin back:
+```
+cordova plugin add <plugin>
+```
+
+For more information on Cordova visit: https://cordova.apache.org/docs/en/latest/
+
+For more information on PhoneGap visit: http://docs.phonegap.com
+
+For more information on Xcode: https://developer.apple.com/xcode/
+
+For more information on Android Studio: https://developer.android.com/studio/index.html
+
