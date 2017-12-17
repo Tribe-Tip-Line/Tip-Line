@@ -1,13 +1,13 @@
 # Tip-Line
 A cross-platform mobile application developed with Adobe Phonegap for [Airline Ambassadors International](http://airlineamb.org)
 
-## Release Notes (v1.0.3 // 12-1-2017)
+## Release Notes (v1.0.4 // 12-17-2017)
 
-**Features:** Intial application rollout to the Google play store and the Apple App store. Supports registration key authentication, user registration, geolocation service, hotline calling capabilities, report submission, and user report list. 
+**Features:** Intial application rollout to the Google play store and the Apple App store. Supports registration key authentication, user registration, geolocation service, hotline calling capabilities, report submission, and user report list. Added respective flag images to country hotline numbers and added additional email field to report submission.  
 
-**Fixed:** Configuration settings to meet the requirements for Apple app store approval.
+**Fixed:** Bugs from previous releas: Add Video tag on report submission page doesn't render properly and doesn't show all the time. Adding an image causes a visual bug for the image thumbnail. In the Report List tab, if a report contains multiple media links, all the links direct to the most recent media link instead of their respective media link. 
 
-**Bugs/Defects:** Add Video tag on report submission page doesn't render properly and doesn't show all the time. Adding an image causes a visual bug for the image thumbnail. In the Report List tab, if a report contains multiple media links, all the links direct to the most recent media link instead of their respective media link. 
+**Bugs/Defects:** None
 
 ## Prerequisites
 ### [Install NodeJS](http://nodejs.org/)
