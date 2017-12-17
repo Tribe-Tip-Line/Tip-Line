@@ -51,12 +51,15 @@ i.tabbar-demo-icon-4 {
   color: #17ACBC;
 }
 
-.add-text {
+.add-text, {
   font-style: italic;
 }
 
 
 
+.tabbar-label {
+  font-weight: bold;
+}
 
 
 
@@ -83,8 +86,16 @@ img {
   width: 40px;
 }
 
+.flag-image {
+  height: 32px;
+  width: 32px;
+  vertical-align: middle;
+  margin-right: .75em;
+}
+
 div {
   word-wrap: break-word;
 }
+
 
 

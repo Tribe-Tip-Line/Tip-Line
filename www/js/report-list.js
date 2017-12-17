@@ -1,6 +1,7 @@
+
 var reports_pulled = [];
 
-//Appends report to local storage of reports_list
+// Appends report to local storage of reports_list
 function save_report(report) {
     reports_list = window.localStorage.getItem("reports");
     temp_report = [];
@@ -11,23 +12,20 @@ function save_report(report) {
     window.localStorage.setItem("reports", reports_list);
 }
 
-//Pulls reports list from local storage
+// Pulls reports list from local storage
 function get_reports_list() {
     return reports_list = window.localStorage.getItem("reports");
 }
 
+// Gets the current user id
 function getUserID() {
     return window.localStorage.getItem("userid");
 }
-
-//var userid = getUserID();
-
 
 // Method that querys the database for the list of Reports
 function getReports() {
     var temp = [];
     var userid = window.localStorage.getItem("userid");
-    //console.log(userid);
     $.ajax({
         url: 'https://api.mlab.com/api/1/databases/tiplineapplication/collections/reports?q={"user_id":' + '"' + userid + '"'+ '}&apiKey=g68v4wvcTSO-6AudfojTLBdRTUBft52J',
         success: function (data) {
@@ -42,14 +40,11 @@ function getReports() {
         }
     }).done(function (data) {
         reports_pulled = temp;
-        //console.log(reports_pulled);
         populateReports();
-        //update_reports();
-        //console.log(window.localStorage.getItem("reports"));
     });
 }
 
-//Updates list of reports with reports_pulled list
+// Updates list of reports with reports_pulled list
 function update_reports() {
     updated_list = []
     for (i = 0; i < reports_pulled.length; i++) {
@@ -61,8 +56,11 @@ function update_reports() {
     window.localStorage.setItem("reports", updated_list)
 }
 
+
+// Function that populates the user's list of reports onto the application
 function populateReports() {
-    
+    // Iterates through the pulled reports from the database
+    // and generates the necessary html to display on screen
     for (var key in reports_pulled) {
         var title = reports_pulled[key].title;
         var flightNum = reports_pulled[key].flight_num;
@@ -70,8 +68,10 @@ function populateReports() {
         var description = reports_pulled[key].description;
         var urls = reports_pulled[key].URLs;
         var status = reports_pulled[key].status;
-        var latitude = reports_pulled[key].location.latitude;
-        var longitude = reports_pulled[key].location.longitude;
+        var latitude = reports_pulled[key].coordinates.latitude;
+        var longitude = reports_pulled[key].coordinates.longitude;
+        var country = reports_pulled[key].country;
+        var city = reports_pulled[key].city;
 
         var card = document.createElement('div');
         var header = document.createElement('h1');
@@ -101,7 +101,7 @@ function populateReports() {
         var locationTextDiv = document.createElement('b');
         var locationText = document.createTextNode("Location: ");
         var locationDataDiv = document.createElement("div");
-        var locationData = document.createTextNode(latitude + ", " + longitude);
+        var locationData = document.createTextNode(city + ", " + country);
         
         var flightTextDiv = document.createElement('b');
         var flightText = document.createTextNode("Flight Number: ");
@@ -123,8 +123,6 @@ function populateReports() {
         cardContent.className = "card-content";
         cardContentInner.className = "card-content-inner";
 
-        //console.log(urls);
-
         for (key in urls) {
             
             var a = document.createElement('a');
@@ -132,8 +130,9 @@ function populateReports() {
             var br = document.createElement('br');
             var br1 = document.createElement('br');
             
+            a.href = urls[key];
             a.onclick = function() {
-                document.location = urls[key];
+                document.location = this.href;
             };
             a.className = "url";
             a.appendChild(urlData);
@@ -143,9 +142,6 @@ function populateReports() {
            ;
             
         }
-
-        //urlDataDiv.href = urls;
-        
        
         statusTextDiv.appendChild(statusText);
         statusDataDiv.appendChild(statusData); 

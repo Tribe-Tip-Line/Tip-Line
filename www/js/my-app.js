@@ -12,53 +12,10 @@ var view2 = myApp.addView('#view-2');
 var view3 = myApp.addView('#view-3');
 var view4 = myApp.addView('#view-4');
 
-
-
-// List of tip line numbers based on location
-// var listNumbers = {
-//     "National Hotline" : "18883737888",
-//     "US" : "8663472423", // United States
-//     "AT" : "2483685383",  // Austria
-//     "DE" : "490802006110", // Germany
-//     "FR" : "33825009907", // France
-//     "TR" : "90157", // Turkey
-//     "BE" : "3225116464", // Belgium
-//     "BG" : "359080018676", // Bulgaria
-//     "CZ" : "420222717171", // Czech Republic
-//     "EE" : "3726607320", // Estonia
-//     "FI" : "358718763170", // Finland
-//     "GR" : "302310525149", // Greece
-//     "HU" : "36205520", // Hungary
-//     "IE" : "353800250025", // Ireland
-//     "IT" : "39800290290", // Italy
-//     "LV" : "37180002012", // Lativa
-//     "LT" : "423880066366", // Lithuania
-//     "LU" : "35249976210", // Luxembourg
-//     "MT" : "35622942000", // Malta
-//     "NL" : "33134481186", // Netherlands
-//     "PL" : "226280120", // Poland
-//     "PT" : "800202148", // Portugal
-//     "RO" : "0800800678", // Romania
-//     "SK" : "903704784", // Slovakia
-//     "SI" : "0801722", // Slovenia
-//     "ES" : "900191010", // Spain
-//     "SE" : "020505050", // Sweden
-//     "Swiss" : "0800208020", // Swiss
-//     "IOM" : "318000522020", // IOM
-//     "JM" : "8768887768328", // Jamaica
-//     "CO" : "578000522020", // Colombia
-//     "DHS" : "18883737888", // DHS
-//     "IACAT" : "631343", // IACAT
-//     "TH" : "661300", // Thailand
-//     "MY" : "2230380008000", // Malaysia
-//     "ID" : "622157951275", // Indonesia
-//     "Polaris" : "8883737888", // Polaris
-//     "AL" : "355116006" // Albania
-//     };
-
-
+// Global Variables
 var countryCode;
 var countryName;
+var countryCity;
 
 var phoneNumber = "8663472423"; // Default phone number (United States)
 
@@ -74,9 +31,10 @@ var reportLocation = {
 // Check if device is ready and calls device ready function
 document.addEventListener("deviceready", onDeviceReady, false);
 
+// If device is ready, function will be called. Browser is not considered a device; thus, this will not be called. 
 function onDeviceReady() {
     
-    navigator.geolocation.getCurrentPosition(onSuccessfulGeolocation, onErrorGeolocation, {maximumAge: 300000, timeout: 30000, enableHighAccuracy : true });
+    navigator.geolocation.getCurrentPosition(onSuccessfulGeolocation, onErrorGeolocation, {maximumAge: 300000, timeout: 100000, enableHighAccuracy : true });
 }
 
 // Functions for Call plugin
@@ -86,10 +44,12 @@ function callPressed(number) {
     window.plugins.CallNumber.callNumber(onSuccess, onError, num, false);
 }
 
+// If Call plugin is successful, this function will be called. 
 function onSuccess(result){
     console.log("Success:"+result);
 }
 
+// If Call plugin is unsuccessful, this function will be called.
 function onError(result) {
     console.log("Error:"+result);
 }
@@ -106,13 +66,13 @@ function onSuccessfulGeolocation(position) {
         
         countryCode = result.countryCode;
         countryName = result.countryName;
+        countryCity = result.locality;
 
         reportLocation["latitude"] = position.coords.latitude;
         reportLocation["longitude"] = position.coords.longitude;
 
         var element = document.getElementById('current-location-home');
         element.innerHTML = 'Current Location: ' + countryName + '<br />';
-        // element.innerHTML = 'Country: ' + country + '<br />';
 
     }
     function failure(err) {
@@ -123,11 +83,11 @@ function onSuccessfulGeolocation(position) {
 
 // onError Callback receives a PositionError object
 function onErrorGeolocation(error) {
-    // alert('code: '    + error.code    + '\n' +
-    //       'message: ' + error.message + '\n');
+    console.log('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
 }
 
 
+// Method that is called when the screen is initialized. 
 function startScreen() {
     // If local storage contains a key, then they have already entered a valid key and can use the app
     // otherwise, take them to the key registration page
@@ -144,7 +104,7 @@ function startScreen() {
 function getNumbers() {
     var temp = [];
     $.ajax({
-        url: "https://api.mlab.com/api/1/databases/tiplineapplication/collections/hotline_numbers?apiKey=g68v4wvcTSO-6AudfojTLBdRTUBft52J",
+        url: "https://api.mlab.com/api/1/databases/tiplineapplication/collections/hotline_numbers?s={'country': 1}&apiKey=g68v4wvcTSO-6AudfojTLBdRTUBft52J",
         success: function(data) {
             for (var i = 0; i < data.length; i++) {
                 dbNumbers.push(data[i]);
@@ -154,8 +114,6 @@ function getNumbers() {
             console.log(err);
         }
      }).done(function(data) {
-        //console.log(dbNumbers);
-        //dbNumbers = temp;
         populateNumList();    
     });
 }
@@ -178,7 +136,18 @@ function populateNumList() {
 
         var li = document.createElement('li');
         var a = document.createElement('a');
+        var image = document.createElement('img');
         var text = document.createTextNode(country + ": " + number);
+
+        if (country === 'DHS' || country === 'United States DHS' || country === 'Polaris' || country === 'National Hotline' || country === 'IOM' || country === 'IACAT' ) {
+            // these are not countries thus they do not have flags
+            // so not setting img.src so that empty image block wont be added
+        } else {
+            image.src = "lib/assets/flags/" + country + "/32.png";
+        }
+
+        
+        image.className = "flag-image";
 
         text.className="number-text";
 
@@ -187,6 +156,15 @@ function populateNumList() {
         a.onclick = function() {
             callPressed(this.id);
         };
+
+        if (image.src) {
+            a.appendChild(image);
+        }
+
+
+        
+        
+        
         a.appendChild(text);
         li.appendChild(a);
         document.getElementById("number-list").appendChild(li);

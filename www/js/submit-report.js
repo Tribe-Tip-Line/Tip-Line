@@ -31,18 +31,19 @@ $$('.confirm-title-ok-cancel').on('click', function () {
     myApp.confirm('Are you sure?', 'Submit a Report',
       function () {
 
-        report["location"] = reportLocation;
+        report["coordinates"] = reportLocation;
+        report["country"] = countryName;
+        report["city"] = countryCity;
         report["user_id"] = window.localStorage.getItem("userid");
         report["title"] = document.getElementById("report-title").value;
         report["date_time"] = date.toUTCString();
         report["flight_num"] = document.getElementById("report-flight").value;
         report["status"] = "In-Progress";
         report["description"] = document.getElementById("report-description").value;
+        report["add_email"] = document.getElementById("report-email").value;
         
         
         if (images.length > 0) {
-            
-            //report["Images"] = images;
             for (var j = 0; j < images.length; j++) {
                 fileToUploadPath = images[j];
                 upload("image"); 
@@ -51,7 +52,6 @@ $$('.confirm-title-ok-cancel').on('click', function () {
         }
         
         if (videos.length > 0) {
-            //report["Videos"] = videos;
             for (var j = 0; j < videos.length; j++) {
                 fileToUploadPath = videos[j];
                 upload("video"); 
@@ -64,11 +64,8 @@ $$('.confirm-title-ok-cancel').on('click', function () {
             }
         }
         
-        setTimeout(submitReport, 4000);
-        
-        
-        
-        
+        // Timeout is added to ensure files are uploaded before sending a report
+        setTimeout(submitReport, 4500);
         
       },
       function () {
@@ -80,8 +77,8 @@ $$('.confirm-title-ok-cancel').on('click', function () {
 
 
 
-// two different implementations - getting from library is done with plugin-camera (do phonegap plugin add cordova-plugin-camera)
-// getting from picture or video is from plugin-media-capture (do phonegap plugin add cordova-plugin-media-capture)
+// two different implementations - getting from library and picture is done with plugin-camera (do phonegap plugin add cordova-plugin-camera)
+// getting from audio or video is from plugin-media-capture (do phonegap plugin add cordova-plugin-media-capture)
 
 // MEDIA CAPTURE
 
@@ -164,6 +161,7 @@ function setOptions(srcType, isPicture) {
     return option;
 }
 
+// camera error callback 
 function cameraError(error) {
     console.debug("Couldn't get media: " + error, "app");
 }
@@ -175,8 +173,6 @@ $$('.image-1').on('click', function () {
         {
             text: 'Take Picture',
             onClick: function () {
-                //navigator.device.capture.captureImage(captureSuccessImage, captureError, {limit:2});
-                console.log("New Camera Test");
                 options = setOptions(Camera.PictureSourceType.CAMERA, 1);
                 navigator.camera.getPicture(onSuccessImage, cameraError, options);
             }
@@ -201,8 +197,6 @@ function onSuccessImage(imageURI) {
     console.log("its working");
     var image = document.getElementById('add-image'); // this element does not exist yet
     images.push(imageURI);
-    //fileToUploadPath = imageURI;
-    //myApp.alert(fileToUploadPath);
     if (image.innerHTML == "Add Image") {
         image.innerHTML = "<img src=" + imageURI + "></img>&nbsp;";
     } else {
@@ -211,11 +205,6 @@ function onSuccessImage(imageURI) {
 
 }
 
-function onSuccess(imageURI) {
-    var video = document.getElementById('add-video');
-    video.innerHTML = imageURI;
-
-}
 
 // function that generates action sheet when add video is pressed
 $$('.video-1').on('click', function () {
@@ -252,6 +241,7 @@ $$('.audio-1').on('click', function () {
     myApp.actions(buttons);
 });
 
+// function that uploads media files to cloudinary
 function upload(mediaType) {
     var uri = encodeURI('https://api.cloudinary.com/v1_1/'+ CLOUD_NAME +'/' + mediaType + '/upload');
     var options = new FileUploadOptions();
@@ -275,7 +265,6 @@ function upload(mediaType) {
         function(result){
     
             // success!
-            //myApp.alert(fileToUploadPath);
             response = JSON.parse(result.response);  
             
     
@@ -318,19 +307,19 @@ function upload(mediaType) {
 
 }
 
+// function that submits the report object to database
 var submitReport = function() {
     $.ajax( { url: "https://api.mlab.com/api/1/databases/tiplineapplication/collections/reports?apiKey=g68v4wvcTSO-6AudfojTLBdRTUBft52J",
-    data: JSON.stringify( { "user_id": report['user_id'], "title" : report['title'], "location": report['location'], "date_time": report['date_time'], "flight_num": report['flight_num'], "status": report['status'], "description": report['description'], "URLs": report['URLs'] } ),
+    data: JSON.stringify( { "user_id": report['user_id'], "title" : report['title'], "coordinates": report['coordinates'], "date_time": report['date_time'], "flight_num": report['flight_num'], "status": report['status'], "description": report['description'], "URLs": report['URLs'], "country": report["country"], "city": report["city"], "additional_email": report['add_email'] } ),
     type: "POST",
     contentType: "application/json", 
     success: function(response) {
-        //console.log(response);
         myApp.alert('Your report has successfully been submitted');
         refresh();
 
     },
     error: function(e) {
-        //alert('Error: ' + e.message);
+        console.log('Error: ' + e.message);
     }} );
 }
 
