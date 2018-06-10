@@ -31,9 +31,9 @@ var reportLocation = {
 // Check if device is ready and calls device ready function
 document.addEventListener("deviceready", onDeviceReady, false);
 
-// If device is ready, function will be called. Browser is not considered a device; thus, this will not be called. 
+// If device is ready, function will be called. Browser is not considered a device; thus, this will not be called.
 function onDeviceReady() {
-    
+
     navigator.geolocation.getCurrentPosition(onSuccessfulGeolocation, onErrorGeolocation, {maximumAge: 300000, timeout: 100000, enableHighAccuracy : true });
 }
 
@@ -44,7 +44,7 @@ function callPressed(number) {
     window.plugins.CallNumber.callNumber(onSuccess, onError, num, false);
 }
 
-// If Call plugin is successful, this function will be called. 
+// If Call plugin is successful, this function will be called.
 function onSuccess(result){
     console.log("Success:"+result);
 }
@@ -63,7 +63,7 @@ function onSuccessfulGeolocation(position) {
     // to that country and if there is, it will add it to the data object. Then it generates html to display the list of numbers
     function success(result) {
 
-        
+
         countryCode = result.countryCode;
         countryName = result.countryName;
         countryCity = result.locality;
@@ -87,7 +87,7 @@ function onErrorGeolocation(error) {
 }
 
 
-// Method that is called when the screen is initialized. 
+// Method that is called when the screen is initialized.
 function startScreen() {
     // If local storage contains a key, then they have already entered a valid key and can use the app
     // otherwise, take them to the key registration page
@@ -96,7 +96,7 @@ function startScreen() {
     }
     getNumbers();
     getReports();
-    
+
 }
 
 
@@ -114,23 +114,23 @@ function getNumbers() {
             console.log(err);
         }
      }).done(function(data) {
-        populateNumList();    
+        populateNumList();
     });
 }
 
 
-// Method that pulls the list of numbers from the database and 
+// Method that pulls the list of numbers from the database and
 // generates the html to show a list of numbers on the call tab
 function populateNumList() {
     var element = document.getElementById('current-location-numbers');
     element.innerHTML = 'Current Location: ' + countryName + '<br />';
-    
+
     for (var key in dbNumbers) {
         var country = dbNumbers[key].country;
         var number = dbNumbers[key].number;
         var code = dbNumbers[key].country_code;
 
-        if (code === countryCode) {
+        if (country.toUpperCase()  ===  countryName.toUpperCase()) {
             phoneNumber = number;
         }
 
@@ -146,7 +146,7 @@ function populateNumList() {
             image.src = "lib/assets/flags/" + country + "/32.png";
         }
 
-        
+
         image.className = "flag-image";
 
         text.className="number-text";
@@ -162,9 +162,9 @@ function populateNumList() {
         }
 
 
-        
-        
-        
+
+
+
         a.appendChild(text);
         li.appendChild(a);
         document.getElementById("number-list").appendChild(li);
@@ -190,7 +190,7 @@ $$('.submit-report-home-button').on('click', function () {
 // Takes user to the call tab view
 $$('.view-numbers-home-button').on('click', function () {
     myApp.showTab('#view-2');
-    
+
 });
 
 // On-click function that handles when view reports button is pressed
